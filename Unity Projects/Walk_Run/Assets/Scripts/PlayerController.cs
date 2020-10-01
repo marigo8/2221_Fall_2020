@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 10f, sprintModifier = 2f;
+    public float moveSpeed = 5f, sprintModifier = 2f;
     private Rigidbody rb;
     
     private void Start()
@@ -27,5 +28,11 @@ public class PlayerController : MonoBehaviour
         
         movement = Vector3.ClampMagnitude(movement, 1);
         rb.MovePosition(transform.position + movement * (moveSpeed * speedModifier * Time.fixedDeltaTime));
+
+        if (movement.magnitude > 0)
+        {
+            var rotation = Quaternion.LookRotation(movement.normalized);
+            rb.MoveRotation(Quaternion.Lerp(transform.rotation, rotation, 10f * Time.deltaTime));
+        }
     }
 }
