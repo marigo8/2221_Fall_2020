@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if (movement.magnitude > 0)
         {
             var rotation = Quaternion.LookRotation(movement.normalized);
-            rotation = Quaternion.Lerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
+            rotation = Quaternion.Lerp(transform.rotation, rotation, rotateSpeed * Time.fixedDeltaTime);
             rb.MoveRotation(rotation);
         }
     }
