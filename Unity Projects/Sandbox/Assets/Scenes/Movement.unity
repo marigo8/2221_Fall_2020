@@ -935,8 +935,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpCount: {fileID: 11400000, guid: 7071daad3b2e9504faa27291e25673c2, type: 2}
+  stamina: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
   moveSpeed: 5
-  sprintModifier: 2
+  sprintModifier: 1.5
+  slowModifier: 0.5
   jumpStrength: 3
 --- !u!143 &1666720555
 CharacterController:

@@ -3,33 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class IntData : ScriptableData
+public class FloatData : ScriptableData
 {
-    public int value;
-    public int maxValue;
+    public float value;
+    public float maxValue;
     public bool useClamp;
 
     public bool IsMaxed => value >= maxValue;
 
-    public void AddToValue(int amount)
+    public void AddToValue(float amount)
     {
         value += amount;
         ClampValue();
     }
 
-    public void SetValue(int amount)
+    public void SetValue(float amount)
     {
         value = amount;
         ClampValue();
     }
 
-    public void AddToMaxValue(int amount)
+    public void AddToMaxValue(float amount)
     {
         maxValue += amount;
         ClampValue();
     }
 
-    public void SetMaxValue(int amount)
+    public void SetMaxValue(float amount)
     {
         maxValue = amount;
         ClampValue();
@@ -53,5 +53,4 @@ public class IntData : ScriptableData
             SetValueToMax();
         }
     }
-    
 }

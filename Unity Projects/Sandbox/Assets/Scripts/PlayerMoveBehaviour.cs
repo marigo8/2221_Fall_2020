@@ -6,18 +6,20 @@ using UnityEngine;
 public class PlayerMoveBehaviour : MonoBehaviour
 {
     public IntData jumpCount;
-    public float moveSpeed = 5f, sprintModifier = 2f, jumpStrength;
-    private float rotateSpeed = 10f, speedModifier;
+    public FloatData stamina;
+    public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = -.5f, jumpStrength;
 
-    private Vector3 forces = Vector3.zero;
-    
+    private float rotateSpeed = 10f, speedModifier = 1f;
+    private Vector3 movement, forces = Vector3.zero;
     private CharacterController controller;
-    private Vector3 movement;
+    private Coroutine sprintCoroutine;
 
     private void Start()
     {
         // Get Components
         controller = GetComponent<CharacterController>();
+        stamina.SetValueToMax();
+        jumpCount.SetValue(0);
     }
 
     private void Update()
@@ -46,12 +48,15 @@ public class PlayerMoveBehaviour : MonoBehaviour
         var hInput = Input.GetAxis("Horizontal");
         var vInput = Input.GetAxis("Vertical");
         movement = new Vector3(hInput, 0, vInput);
-
+        
         // Sprint
-        speedModifier = 1f;
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speedModifier *= sprintModifier;
+            if (sprintCoroutine != null)
+            {
+                StopCoroutine(sprintCoroutine);
+            }
+            sprintCoroutine = StartCoroutine(Sprint());
         }
 
         // Move Player
@@ -65,6 +70,38 @@ public class PlayerMoveBehaviour : MonoBehaviour
             rotation = Quaternion.Lerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
             transform.rotation = rotation;
         }
+    }
+
+    private IEnumerator Sprint()
+    {
+        // Sprinting
+        speedModifier = sprintModifier;
+        
+        // Deplete Stamina
+        while (Input.GetKey(KeyCode.LeftShift) && stamina.value > 0)
+        {
+            stamina.AddToValue(-1f*Time.fixedDeltaTime);
+            yield return new WaitForFixedUpdate();
+        }
+
+        if (stamina.value > 0)
+        {
+            // Regular Speed
+            speedModifier = 1f;
+            yield return new WaitForSeconds(1);
+        }
+        else
+        {
+            // Slow Speed
+            speedModifier = slowModifier;
+            yield return new WaitForSeconds(2);
+        }
+        while (!stamina.IsMaxed)
+        {
+            stamina.AddToValue(.5f*Time.fixedDeltaTime);
+            yield return new WaitForFixedUpdate();
+        }
+        speedModifier = 1f;
     }
 
     private void Jump()
