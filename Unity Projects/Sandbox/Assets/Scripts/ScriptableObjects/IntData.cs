@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class IntData : ScriptableData
 {
+    public string label;
     public int value;
     public int maxValue;
     public bool useClamp;
@@ -44,14 +45,17 @@ public class IntData : ScriptableData
     {
         if (!useClamp) return;
 
-        if (value < 0)
-        {
-            value = 0;
-        }
-        else if (value > maxValue)
-        {
-            SetValueToMax();
-        }
+        value = Mathf.Clamp(value, 0, maxValue);
     }
-    
+
+    public override string GetString()
+    {
+        var text = label + ": " + value;
+        if (useClamp)
+        {
+            text += " / " + maxValue;
+        }
+
+        return text;
+    }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e88243928aec274587d38298a48b276, type: 3}
   m_Name: PlayerStamina
   m_EditorClassIdentifier: 
-  value: 2
+  label: Stamina
+  value: 1.1000009
   maxValue: 2
   useClamp: 1

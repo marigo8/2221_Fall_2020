@@ -9,6 +9,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public FloatData stamina;
     public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = -.5f, jumpStrength;
 
+    private bool canSprint = true;
     private float rotateSpeed = 10f, speedModifier = 1f;
     private Vector3 movement, forces = Vector3.zero;
     private CharacterController controller;
@@ -50,7 +51,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         movement = new Vector3(hInput, 0, vInput);
         
         // Sprint
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canSprint)
         {
             if (sprintCoroutine != null)
             {
@@ -80,7 +81,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // Deplete Stamina
         while (Input.GetKey(KeyCode.LeftShift) && stamina.value > 0)
         {
-            stamina.AddToValue(-1f*Time.fixedDeltaTime);
+            stamina.AddToValue(-Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
 
@@ -88,20 +89,22 @@ public class PlayerMoveBehaviour : MonoBehaviour
         {
             // Regular Speed
             speedModifier = 1f;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.5f);
         }
         else
         {
-            // Slow Speed
+            // Slow 
+            canSprint = false;
             speedModifier = slowModifier;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
         }
         while (!stamina.IsMaxed)
         {
-            stamina.AddToValue(.5f*Time.fixedDeltaTime);
+            stamina.AddToValue(Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
         speedModifier = 1f;
+        canSprint = true;
     }
 
     private void Jump()

@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu]
 public class FloatData : ScriptableData
 {
+    public string label;
     public float value;
     public float maxValue;
     public bool useClamp;
@@ -44,13 +44,17 @@ public class FloatData : ScriptableData
     {
         if (!useClamp) return;
 
-        if (value < 0)
+        value = Mathf.Clamp(value, 0, maxValue);
+    }
+
+    public override string GetString()
+    {
+        var text = label + ": " + value.ToString("F1");
+        if (useClamp)
         {
-            value = 0;
+            text += " / " + maxValue.ToString("F1");
         }
-        else if (value > maxValue)
-        {
-            SetValueToMax();
-        }
+
+        return text;
     }
 }
