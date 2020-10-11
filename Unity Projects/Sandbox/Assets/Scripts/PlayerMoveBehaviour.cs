@@ -9,7 +9,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public FloatData stamina;
     public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = -.5f, jumpStrength;
 
-    private bool staminaCoolingDown = false;
+    private bool staminaCoolingDown;
     private float rotateSpeed = 10f, speedModifier = 1f;
     private Vector3 movement, forces = Vector3.zero;
     private CharacterController controller;
