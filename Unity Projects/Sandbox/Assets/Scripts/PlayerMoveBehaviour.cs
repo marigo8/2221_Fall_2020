@@ -51,7 +51,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         movement = new Vector3(hInput, 0, vInput);
         
         // Sprint
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !staminaCoolingDown)
+        if (Input.GetButtonDown("Sprint") && !staminaCoolingDown)
         {
             if (sprintCoroutine != null) // if a coroutine is already running...
             {
@@ -79,7 +79,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         speedModifier = sprintModifier;
         
         // Deplete Stamina
-        while (Input.GetKey(KeyCode.LeftShift) && stamina.value > 0)
+        while (Input.GetButton("Sprint") && stamina.value > 0)
         {
             stamina.AddToValue(-Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
