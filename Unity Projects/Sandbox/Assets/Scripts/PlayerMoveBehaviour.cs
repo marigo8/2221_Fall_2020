@@ -9,7 +9,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public FloatData stamina;
     public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = -.5f, jumpStrength;
 
-    private bool canSprint = true;
+    private bool staminaCoolingDown = false;
     private float rotateSpeed = 10f, speedModifier = 1f;
     private Vector3 movement, forces = Vector3.zero;
     private CharacterController controller;
@@ -51,13 +51,13 @@ public class PlayerMoveBehaviour : MonoBehaviour
         movement = new Vector3(hInput, 0, vInput);
         
         // Sprint
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canSprint)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !staminaCoolingDown)
         {
-            if (sprintCoroutine != null)
+            if (sprintCoroutine != null) // if a coroutine is already running...
             {
-                StopCoroutine(sprintCoroutine);
+                StopCoroutine(sprintCoroutine); // stop coroutine
             }
-            sprintCoroutine = StartCoroutine(Sprint());
+            sprintCoroutine = StartCoroutine(Sprint()); // start coroutine
         }
 
         // Move Player
@@ -75,7 +75,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
 
     private IEnumerator Sprint()
     {
-        // Sprinting
+        // Sprinting Speed
         speedModifier = sprintModifier;
         
         // Deplete Stamina
@@ -84,7 +84,8 @@ public class PlayerMoveBehaviour : MonoBehaviour
             stamina.AddToValue(-Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
-
+        
+        // Stop Sprinting
         if (stamina.value > 0)
         {
             // Regular Speed
@@ -93,18 +94,22 @@ public class PlayerMoveBehaviour : MonoBehaviour
         }
         else
         {
-            // Slow 
-            canSprint = false;
+            // Slow Speed
+            staminaCoolingDown = true;
             speedModifier = slowModifier;
             yield return new WaitForSeconds(1);
         }
+        
+        // Regenerate Stamina
         while (!stamina.IsMaxed)
         {
             stamina.AddToValue(Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
+        
+        // End
         speedModifier = 1f;
-        canSprint = true;
+        staminaCoolingDown = false;
     }
 
     private void Jump()
@@ -116,7 +121,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         }
             
         // Jump
-        if (Input.GetButtonDown("Jump") && !jumpCount.IsMaxed)
+        if (Input.GetButtonDown("Jump") && !jumpCount.IsMaxed && !staminaCoolingDown)
         {
             forces.y = jumpStrength;
             jumpCount.AddToValue(1);
