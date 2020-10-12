@@ -5,10 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMoveBehaviour : MonoBehaviour
 {
+    // Scriptable Objects
     public IntData jumpCount;
     public FloatData stamina;
+    
+    // Public Properties
     public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = -.5f, jumpStrength;
 
+    // Private Properties
     private bool staminaCoolingDown;
     private float rotateSpeed = 10f, speedModifier = 1f;
     private Vector3 movement, forces = Vector3.zero;
@@ -19,26 +23,29 @@ public class PlayerMoveBehaviour : MonoBehaviour
     {
         // Get Components
         controller = GetComponent<CharacterController>();
+        
+        // Reset ScriptableObjects
         stamina.SetValueToMax();
         jumpCount.SetValue(0);
     }
 
     private void Update()
     {
+        // Main
         Gravity();
         WalkRun();
         Jump();
         
-        // Movement
+        // Apply Movement
         controller.Move((movement + forces) * Time.deltaTime);
     }
 
     private void Gravity()
     {
         // Gravity
-        if (controller.velocity.y < 0) // This fixes issue where player halts at the peak of the jump.
+        if (controller.isGrounded)
         {
-            forces.y = controller.velocity.y;
+            forces.y = 0;
         }
         forces.y += Physics.gravity.y * Time.deltaTime;
     }
@@ -121,7 +128,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         }
             
         // Jump
-        if (Input.GetButtonDown("Jump") && !jumpCount.IsMaxed && !staminaCoolingDown)
+        if (Input.GetButtonDown("Jump") && !jumpCount.IsMaxed)
         {
             forces.y = jumpStrength;
             jumpCount.AddToValue(1);
