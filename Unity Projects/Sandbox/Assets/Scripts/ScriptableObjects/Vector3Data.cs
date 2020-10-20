@@ -4,7 +4,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Vector3Data : ScriptableData
 {
-    public string label;
     public Vector3 value;
 
     public float X => value.x;

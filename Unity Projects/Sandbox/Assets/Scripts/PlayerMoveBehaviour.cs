@@ -10,7 +10,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public FloatData stamina;
     
     // Public Properties
-    public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = -.5f, jumpStrength;
+    public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = .5f, jumpStrength = 5;
 
     // Private Properties
     private bool staminaCoolingDown;

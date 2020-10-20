@@ -4,7 +4,6 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class FloatData : ScriptableData
 {
-    public string label;
     public float value;
     public float maxValue;
     public bool useClamp;
@@ -56,5 +55,10 @@ public class FloatData : ScriptableData
         }
 
         return text;
+    }
+
+    public override float GetFraction()
+    {
+        return value / maxValue;
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class IntData : ScriptableData
 {
-    public string label;
     public int value;
     public int maxValue;
     public bool useClamp;
@@ -57,5 +56,10 @@ public class IntData : ScriptableData
         }
 
         return text;
+    }
+    
+    public override float GetFraction()
+    {
+        return (value * 1f) / (maxValue * 1f);
     }
 }

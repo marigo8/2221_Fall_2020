@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Text))]
-public class ScriptableDataHudBehaviour : MonoBehaviour
+public class ScriptableDataTextBehaviour : MonoBehaviour
 {
     public ScriptableData[] datas;
     private Text textObj;
