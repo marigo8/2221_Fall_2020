@@ -7,15 +7,26 @@ using UnityEngine.UI;
 public class ScriptableDataImageBehaviour : MonoBehaviour
 {
     public ScriptableData data;
+    public Gradient gradient, backgroundGradient;
+    public Image background;
+    
     private Image imageObj;
+    private bool isBackgroundNull;
 
     private void Start()
     {
+        isBackgroundNull = background == null;
         imageObj = GetComponent<Image>();
     }
 
     private void Update()
     {
-        imageObj.fillAmount = data.GetFraction();
+        var fraction = data.GetFraction();
+        
+        imageObj.fillAmount = fraction;
+        imageObj.color = gradient.Evaluate(fraction);
+
+        if (isBackgroundNull) return;
+        background.color = backgroundGradient.Evaluate(fraction);
     }
 }

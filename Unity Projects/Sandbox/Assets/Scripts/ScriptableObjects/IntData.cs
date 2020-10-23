@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,13 +8,27 @@ public class IntData : ScriptableData
 {
     public int value;
     public int maxValue;
-    public bool useClamp;
+    public int startValue;
+    public int startMax;
+    public bool useClamp, useStartValues;
 
     public bool IsMaxed => value >= maxValue;
+
+    private void OnEnable()
+    {
+        if (!useStartValues) return;
+        value = startValue;
+        maxValue = startMax;
+    }
 
     public void AddToValue(int amount)
     {
         value += amount;
+        ClampValue();
+    }
+    public void AddToValue(IntData intData)
+    {
+        value += intData.value;
         ClampValue();
     }
 

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a53d2d5415687d94a9a17657d1cb401d, type: 3}
-  m_Name: PlayerJumpCount
+  m_Name: AttackWeak
   m_EditorClassIdentifier: 
-  label: Jump Count
-  value: 0
-  maxValue: 2
+  label: Weak Attack
+  value: -1
+  maxValue: 0
   startValue: 0
-  startMax: 2
-  useClamp: 1
-  useStartValues: 1
+  startMax: 0
+  useClamp: 0
+  useStartValues: 0
