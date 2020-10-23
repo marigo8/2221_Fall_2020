@@ -1,21 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMoveBehaviour : MonoBehaviour
 {
+    // PUBLIC PROPERTIES //
+    
     // Scriptable Objects
     public IntData jumpCount;
     public FloatData stamina;
+    public CharacterStateData characterState;
     
-    // Public Properties
+    // Variables
     public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = .5f, jumpStrength = 5;
-
-    // Private Properties
+    
+    // PRIVATE PROPERTIES //
+    
+    // Variables
     private bool staminaCoolingDown;
     private float rotateSpeed = 10f, speedModifier = 1f;
     private Vector3 movement, forces = Vector3.zero;
+    
+    // Components
     private CharacterController controller;
     private Coroutine sprintCoroutine;
 
@@ -31,10 +39,27 @@ public class PlayerMoveBehaviour : MonoBehaviour
 
     private void Update()
     {
-        // Main
+        // Reset Movement
+        movement = Vector3.zero;
+        
+        // Gravity
         Gravity();
-        WalkRun();
-        Jump();
+        
+        // Character States
+        switch (characterState.currentState)
+        {
+            case CharacterStateData.States.Walking:
+                WalkRun();
+                Jump();
+                break;
+            
+            case CharacterStateData.States.Throwing:
+                
+                break;
+            
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
         
         // Apply Movement
         controller.Move((movement + forces) * Time.deltaTime);
