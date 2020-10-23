@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class ScriptableDataImageBehaviour : MonoBehaviour
+public class HudImageBehaviour : MonoBehaviour
 {
     public ScriptableData data;
     public Gradient gradient, backgroundGradient;
