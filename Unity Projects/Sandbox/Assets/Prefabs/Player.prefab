@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 11400000, guid: 9f1997f05a4dd7b49b9df5a276dec807, type: 2}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 11400000, guid: 8ae9b0f7c058f8e458ad40f628cdf75e, type: 2}
+  spawnDirection: {fileID: 11400000, guid: d03605dc61983f148a498ceadcc65532, type: 2}
   respawnTime: 2
 --- !u!114 &1209158906
 MonoBehaviour:

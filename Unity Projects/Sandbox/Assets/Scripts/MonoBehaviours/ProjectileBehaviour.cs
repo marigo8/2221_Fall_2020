@@ -15,4 +15,9 @@ public class ProjectileBehaviour : InstanceBehaviour
         rb = GetComponent<Rigidbody>();
         rb.AddRelativeForce(force);
     }
+
+    public void DestroyProjectile()
+    {
+        Destroy(gameObject);
+    }
 }

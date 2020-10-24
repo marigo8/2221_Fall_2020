@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DoorTimer
   m_EditorClassIdentifier: 
   label: Door Timer
-  duration: 3
-  currentTime: 2.6200004
+  duration: 1
+  currentTime: -0.019999612
   timerEvent:
     m_PersistentCalls:
       m_Calls: []

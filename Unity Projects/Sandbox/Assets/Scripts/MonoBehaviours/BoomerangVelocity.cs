@@ -3,20 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class BoomerangVelocity : MonoBehaviour
 {
-    public bool canShoot = true;
-    public Rigidbody rBody;
-    public WaitForFixedUpdate wffu = new WaitForFixedUpdate();
-    public Vector3 initalVelocity; // <---
+    public float airTime;
+    public bool inTheAir = true;
+    public Vector3 initialVelocity;
+    
+    private Rigidbody rBody;
+    private WaitForFixedUpdate wffu = new WaitForFixedUpdate();
 
     public IEnumerator Start()
     {
-        rBody.velocity = initalVelocity; // <---
-        var originalVelocity = initalVelocity;
-        while (canShoot)
+        rBody = GetComponent<Rigidbody>();
+        
+        rBody.velocity = initialVelocity;
+        var originalVelocity = initialVelocity;
+        while (inTheAir)
         {
-            rBody.velocity = Vector3.Lerp(rBody.velocity, -originalVelocity, 1f);
+            rBody.velocity = Vector3.Lerp(rBody.velocity, -originalVelocity, airTime*Time.deltaTime);
             yield return wffu;
             Debug.Log("ack");
         }

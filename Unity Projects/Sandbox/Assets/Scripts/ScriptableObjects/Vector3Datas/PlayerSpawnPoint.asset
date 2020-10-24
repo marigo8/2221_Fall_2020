@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfeb9f71f57d5e6428bf2d11f8faa6d6, type: 3}
-  m_Name: PlayerVelocity
+  m_Name: PlayerSpawnPoint
   m_EditorClassIdentifier: 
-  label: Velocity
-  value: {x: 0, y: 0, z: 0}
+  label: Spawn Point
+  value: {x: -0.37, y: 0.56, z: 14.29}

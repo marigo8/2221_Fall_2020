@@ -9,7 +9,8 @@ using UnityEngine;
 public class PlayerLifeBehaviour : MonoBehaviour
 {
     public IntData health;
-    public Transform spawnPoint;
+    public Vector3Data spawnPoint;
+    public FloatData spawnDirection;
     public int respawnTime;
     
     private MeshRenderer meshRenderer;
@@ -42,9 +43,9 @@ public class PlayerLifeBehaviour : MonoBehaviour
 
         yield return respawnWait;
         
-        transform.position = spawnPoint.position;
+        transform.position = spawnPoint.value;
         var rotation = Vector3.zero;
-        rotation.y = spawnPoint.eulerAngles.y;
+        rotation.y = spawnDirection.value;
         transform.eulerAngles = rotation;
         
         health.SetValueToMax();

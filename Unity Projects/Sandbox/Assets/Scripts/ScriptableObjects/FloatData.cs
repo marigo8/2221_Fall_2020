@@ -46,6 +46,12 @@ public class FloatData : ScriptableData
         value = Mathf.Clamp(value, 0, maxValue);
     }
 
+    public void SetValueFromRotationY(Transform transformObj)
+    {
+        value = transformObj.eulerAngles.y;
+        ClampValue();
+    }
+
     public override string GetString()
     {
         var text = label + ": " + value.ToString("F1");
