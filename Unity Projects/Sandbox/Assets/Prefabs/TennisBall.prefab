@@ -360,6 +360,9 @@ MonoBehaviour:
   filterTag: Enemy
   triggerEnterEvent:
     m_PersistentCalls:
+      m_Calls: []
+  triggerStayEvent:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1584244407656580715}
         m_TargetAssemblyTypeName: ProjectileBehaviour, Assembly-CSharp
@@ -373,9 +376,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerStayEvent:
-    m_PersistentCalls:
-      m_Calls: []
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls: []
