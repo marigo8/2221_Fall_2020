@@ -11,7 +11,7 @@ public class PlayerLifeBehaviour : MonoBehaviour
     public IntData health;
     public Vector3Data spawnPoint;
     public FloatData spawnDirection;
-    public int respawnTime;
+    public float respawnTime;
     
     private MeshRenderer meshRenderer;
     private CharacterController controller;

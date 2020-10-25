@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIFollowTargetBehaviour : MonoBehaviour
 {
-    public Transform target;
+    public Transform target, player;
     public bool followTarget;
     
     private NavMeshAgent agent;
@@ -31,6 +31,12 @@ public class AIFollowTargetBehaviour : MonoBehaviour
     private void Update()
     {
         if (!followTarget) return;
+
+        if (target == null)
+        {
+            target = player;
+        }
+        
         agent.destination = target.position;
     }
 }
