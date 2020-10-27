@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   label: Jump Count
   value: 0
-  maxValue: 2
+  maxValue: 1
   startValue: 0
-  startMax: 2
+  startMax: 1
   useClamp: 1
   useStartValues: 1
+  zeroEvent:
+    m_PersistentCalls:
+      m_Calls: []
