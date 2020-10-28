@@ -16,6 +16,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     
     // Variables
     public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = .5f, jumpStrength = 3.5f, tempClimbStrength;
+    public bool godMode;
     
     // PRIVATE PROPERTIES //
     
@@ -115,7 +116,11 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // Deplete Stamina
         while (Input.GetButton("Sprint") && stamina.value > 0)
         {
-            stamina.AddToValue(-Time.fixedDeltaTime);
+            if (!godMode)
+            {
+                stamina.AddToValue(-Time.fixedDeltaTime);
+            }
+
             yield return new WaitForFixedUpdate();
         }
         
@@ -137,7 +142,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // Regenerate Stamina
         while (!stamina.IsMaxed)
         {
-            stamina.AddToValue(Time.fixedDeltaTime*4);
+            stamina.AddToValue(Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
         
@@ -152,6 +157,10 @@ public class PlayerMoveBehaviour : MonoBehaviour
         if (controller.isGrounded)
         {
             jumpCount.SetValue(0);
+        }
+        else if (jumpCount.value == 0)
+        {
+            jumpCount.SetValue(1);
         }
             
         // Jump
