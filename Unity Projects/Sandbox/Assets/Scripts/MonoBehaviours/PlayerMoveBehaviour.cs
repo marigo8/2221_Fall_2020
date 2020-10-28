@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -14,7 +15,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public CharacterStateData characterState;
     
     // Variables
-    public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = .5f, jumpStrength = 5;
+    public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = .5f, jumpStrength = 3.5f, tempClimbStrength;
     
     // PRIVATE PROPERTIES //
     
@@ -51,6 +52,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
             case CharacterStateData.States.Walking:
                 WalkRun();
                 Jump();
+                TempClimb();
                 break;
             
             case CharacterStateData.States.Throwing:
@@ -122,20 +124,20 @@ public class PlayerMoveBehaviour : MonoBehaviour
         {
             // Regular Speed
             speedModifier = 1f;
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
         }
         else
         {
             // Slow Speed
             staminaCoolingDown = true;
             speedModifier = slowModifier;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2f);
         }
         
         // Regenerate Stamina
         while (!stamina.IsMaxed)
         {
-            stamina.AddToValue(Time.fixedDeltaTime);
+            stamina.AddToValue(Time.fixedDeltaTime*4);
             yield return new WaitForFixedUpdate();
         }
         
@@ -157,6 +159,14 @@ public class PlayerMoveBehaviour : MonoBehaviour
         {
             forces.y = jumpStrength;
             jumpCount.AddToValue(1);
+        }
+    }
+
+    private void TempClimb()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            forces.y = tempClimbStrength;
         }
     }
 }

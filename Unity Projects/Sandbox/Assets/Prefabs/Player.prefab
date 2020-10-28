@@ -120,10 +120,11 @@ MonoBehaviour:
   jumpCount: {fileID: 11400000, guid: 7071daad3b2e9504faa27291e25673c2, type: 2}
   stamina: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
   characterState: {fileID: 11400000, guid: a647236b92ffe4c409e4f45908abb736, type: 2}
-  moveSpeed: 5
-  sprintModifier: 1.5
-  slowModifier: 0.5
-  jumpStrength: 3
+  moveSpeed: 3
+  sprintModifier: 2
+  slowModifier: 1
+  jumpStrength: 3.5
+  tempClimbStrength: 4
 --- !u!114 &1209158905
 MonoBehaviour:
   m_ObjectHideFlags: 0
