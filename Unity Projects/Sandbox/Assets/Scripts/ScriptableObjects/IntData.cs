@@ -7,19 +7,16 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class IntData : ScriptableData
 {
-    public int value;
-    public int maxValue;
-    public int startValue;
-    public int startMax;
-    public bool useClamp, useStartValues;
+    public int value, maxValue, startValue, startMax;
+    public bool useClamp;
+    
+    public bool IsMaxed => value >= maxValue;
 
     public UnityEvent zeroEvent;
 
-    public bool IsMaxed => value >= maxValue;
-
     private void OnEnable()
     {
-        if (!useStartValues) return;
+        if (!useStartingValue) return;
         value = startValue;
         maxValue = startMax;
     }

@@ -4,11 +4,19 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class FloatData : ScriptableData
 {
-    public float value;
-    public float maxValue;
+    public float value, maxValue, startValue, startMax;
     public bool useClamp;
 
     public bool IsMaxed => value >= maxValue;
+
+    public UnityEvent zeroEvent;
+    
+    private void OnEnable()
+    {
+        if (!useStartingValue) return;
+        value = startValue;
+        maxValue = startMax;
+    }
 
     public void AddToValue(float amount)
     {
@@ -50,6 +58,13 @@ public class FloatData : ScriptableData
     {
         value = transformObj.eulerAngles.y;
         ClampValue();
+    }
+
+    public void SetRotationYFromValue(Transform transformObj)
+    {
+        var rotation = transformObj.eulerAngles;
+        rotation.y = value;
+        transformObj.eulerAngles = rotation;
     }
 
     public override string GetString()

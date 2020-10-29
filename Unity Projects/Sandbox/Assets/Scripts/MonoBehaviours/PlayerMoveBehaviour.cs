@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -23,11 +22,22 @@ public class PlayerMoveBehaviour : MonoBehaviour
     // Variables
     private bool staminaCoolingDown;
     private float rotateSpeed = 10f, speedModifier = 1f;
-    private Vector3 movement, forces = Vector3.zero;
+    private Vector3 movement, gravityForce = Vector3.zero, knockbackForce = Vector3.zero;
     
     // Components
     private CharacterController controller;
     private Coroutine sprintCoroutine;
+
+    public void AddForce(Vector3 addedForce)
+    {
+        knockbackForce += addedForce;
+    }
+
+    private void OnEnable()
+    {
+        knockbackForce = Vector3.zero;
+        gravityForce = Vector3.zero;
+    }
 
     private void Start()
     {
@@ -39,14 +49,18 @@ public class PlayerMoveBehaviour : MonoBehaviour
         jumpCount.SetValue(0);
     }
 
+    private void FixedUpdate()
+    {
+        // Physics
+        Gravity();
+        ExternalForce();
+    }
+
     private void Update()
     {
         // Reset Movement
         movement = Vector3.zero;
-        
-        // Gravity
-        Gravity();
-        
+
         // Character States
         switch (characterState.currentState)
         {
@@ -65,7 +79,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         }
         
         // Apply Movement
-        controller.Move((movement + forces) * Time.deltaTime);
+        controller.Move((movement + gravityForce + knockbackForce) * Time.deltaTime);
     }
 
     private void Gravity()
@@ -73,9 +87,23 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // Gravity
         if (controller.isGrounded)
         {
-            forces.y = 0;
+            gravityForce.y = 0;
         }
-        forces.y += Physics.gravity.y * Time.deltaTime;
+        gravityForce.y += Physics.gravity.y * Time.fixedDeltaTime;
+    }
+
+    private void ExternalForce()
+    {
+        knockbackForce = Vector3.Lerp(knockbackForce, Vector3.zero, 5 * Time.fixedDeltaTime);
+        if (knockbackForce.magnitude <0.01f)
+        {
+            knockbackForce = Vector3.zero;
+        }
+
+        if (knockbackForce.magnitude > 0)
+        {
+            movement += knockbackForce;
+        }
     }
 
     private void WalkRun()
@@ -166,7 +194,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // Jump
         if (Input.GetButtonDown("Jump") && !jumpCount.IsMaxed)
         {
-            forces.y = jumpStrength;
+            gravityForce.y = jumpStrength;
             jumpCount.AddToValue(1);
         }
     }
@@ -175,7 +203,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            forces.y = tempClimbStrength;
+            gravityForce.y = tempClimbStrength;
         }
     }
 }
