@@ -15,19 +15,19 @@ TagManager:
   - UI
   - 
   - 
+  - Player
   - 
   - 
+  - NPC
   - 
   - 
+  - Moveable
   - 
   - 
+  - Mover
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ignore Physics
   - 
   - 
   - 
