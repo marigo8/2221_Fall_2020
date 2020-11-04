@@ -6,6 +6,11 @@ public class ConveyorBehaviour : MonoBehaviour
 {
     public float speed;
 
+    public void SetSpeed(float value)
+    {
+        speed = value;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         other.transform.position += transform.forward * speed * Time.fixedDeltaTime;
