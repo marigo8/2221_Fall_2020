@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PlayerTennisBallCount
   m_EditorClassIdentifier: 
   label: Tennis Balls
-  value: 0
+  useStartingValue: 1
+  value: 3
   maxValue: 0
   startValue: 3
   startMax: 0
   useClamp: 0
-  useStartValues: 1
   zeroEvent:
     m_PersistentCalls:
       m_Calls: []
