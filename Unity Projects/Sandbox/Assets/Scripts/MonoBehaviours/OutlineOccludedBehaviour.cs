@@ -12,9 +12,8 @@ public class OutlineOccludedBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out var hit,10f, LayerMask.GetMask("Default")))
+        if (Physics.Raycast(transform.position, transform.forward, 10f, LayerMask.GetMask("Default")))
         {
-            Debug.Log(hit.collider.name);
             playerOutline.enabled = true;
         }
         else
