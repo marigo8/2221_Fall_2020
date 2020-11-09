@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PlayerHealth
   m_EditorClassIdentifier: 
   label: Health
+  useStartingValue: 1
   value: 100
   maxValue: 100
   startValue: 100
   startMax: 100
   useClamp: 1
-  useStartValues: 1
   zeroEvent:
     m_PersistentCalls:
       m_Calls: []
