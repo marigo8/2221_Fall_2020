@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1860761440774259558}
   - component: {fileID: 5317687148080794847}
   - component: {fileID: 9177295820145189458}
-  - component: {fileID: 1584244407656580715}
+  - component: {fileID: 6964711993744630397}
   m_Layer: 0
   m_Name: TennisBall
   m_TagString: Distraction
@@ -33,8 +33,6 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 8795255650989543911}
-  - {fileID: 5557420370008331789}
-  - {fileID: 3950839977527219466}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -116,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1584244407656580715
+--- !u!114 &6964711993744630397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3864b943d460e044699f7bb3d8976b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 100, z: 500}
-  lifeTime: 5
+  force: {x: 0, y: 0, z: 0}
+  lifeTime: 0
 --- !u!1 &2521874276201398954
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +139,7 @@ GameObject:
   - component: {fileID: 8795255650989543911}
   - component: {fileID: 1394598451626783220}
   - component: {fileID: 356841955032012549}
-  m_Layer: 2
+  m_Layer: 26
   m_Name: Player Pick Up Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +201,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1584244407656580715}
+      - m_Target: {fileID: 6964711993744630397}
         m_TargetAssemblyTypeName: ProjectileBehaviour, Assembly-CSharp
         m_MethodName: DestroyProjectile
         m_Mode: 1
@@ -218,164 +216,6 @@ MonoBehaviour:
   triggerStayEvent:
     m_PersistentCalls:
       m_Calls: []
-  triggerExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &2642608224754795635
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3950839977527219466}
-  - component: {fileID: 4032639475064594477}
-  - component: {fileID: 977847786878141340}
-  m_Layer: 2
-  m_Name: Enemy Pick Up Radius (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3950839977527219466
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2642608224754795635}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5434647543041640981}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &4032639475064594477
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2642608224754795635}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &977847786878141340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2642608224754795635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252f4e55fe5cfe04fa3cd57c03e507dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filterTag: Enemy
-  triggerEnterEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerStayEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1584244407656580715}
-        m_TargetAssemblyTypeName: ProjectileBehaviour, Assembly-CSharp
-        m_MethodName: Decay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  triggerExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &4460926900447965864
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5557420370008331789}
-  - component: {fileID: 1130044230848758856}
-  - component: {fileID: 7383635063517156834}
-  m_Layer: 0
-  m_Name: Distraction Radius
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5557420370008331789
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4460926900447965864}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5434647543041640981}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1130044230848758856
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4460926900447965864}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 48
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7383635063517156834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4460926900447965864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252f4e55fe5cfe04fa3cd57c03e507dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filterTag: Enemy
-  triggerEnterEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerStayEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1584244407656580715}
-        m_TargetAssemblyTypeName: ProjectileBehaviour, Assembly-CSharp
-        m_MethodName: DistractEnemy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls: []

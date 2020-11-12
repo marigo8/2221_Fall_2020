@@ -9,6 +9,11 @@ public class TriggerEventsBehaviour : MonoBehaviour
     public UnityEvent<Collider> triggerEnterEvent;
     public UnityEvent<Collider> triggerStayEvent;
     public UnityEvent<Collider> triggerExitEvent;
+
+    public void DestroyCollider(Collider other)
+    {
+        Destroy(other.gameObject);
+    }
     
     private void OnTriggerEnter(Collider other)
     {
