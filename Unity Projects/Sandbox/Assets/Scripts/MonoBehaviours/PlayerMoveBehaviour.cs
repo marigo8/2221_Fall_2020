@@ -76,6 +76,9 @@ public class PlayerMoveBehaviour : MonoBehaviour
                 
                 break;
             
+            case CharacterStateData.States.Stopped:
+                
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }

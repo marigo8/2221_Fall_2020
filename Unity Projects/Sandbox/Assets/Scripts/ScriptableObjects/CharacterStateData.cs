@@ -12,6 +12,21 @@ public class CharacterStateData : ScriptableObject
 
     public States currentState;
 
+    public void SetWalking()
+    {
+        currentState = States.Walking;
+    }
+
+    public void SetThrowing()
+    {
+        currentState = States.Throwing;
+    }
+
+    public void SetStopped()
+    {
+        currentState = States.Stopped;
+    }
+
     private void OnEnable()
     {
         currentState = States.Walking;
