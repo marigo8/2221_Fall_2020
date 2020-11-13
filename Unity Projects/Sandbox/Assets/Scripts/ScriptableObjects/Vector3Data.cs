@@ -4,19 +4,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Vector3Data : ScriptableData
 {
-    public Vector3 value, startingValue;
+    public Vector3 value;
 
     public float x => value.x;
     public float y => value.y;
     public float z => value.z;
-    
-    protected virtual void OnEnable()
-    {
-        if (useStartingValue)
-        {
-            value = startingValue;
-        }
-    }
 
     public void SetValueFromVector3(Vector3 vector3)
     {

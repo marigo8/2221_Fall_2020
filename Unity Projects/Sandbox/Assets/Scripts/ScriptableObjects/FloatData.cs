@@ -4,19 +4,12 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class FloatData : ScriptableData
 {
-    public float value, maxValue, startValue, startMax;
+    public float value, maxValue;
     public bool useClamp;
 
     public bool IsMaxed => value >= maxValue;
 
-    public UnityEvent zeroEvent;
-    
-    private void OnEnable()
-    {
-        if (!useStartingValue) return;
-        value = startValue;
-        maxValue = startMax;
-    }
+    public UnityEvent updateValueEvent, zeroEvent;
 
     public void AddToValue(float amount)
     {
@@ -49,9 +42,16 @@ public class FloatData : ScriptableData
 
     private void ClampValue()
     {
-        if (!useClamp) return;
+        if (useClamp)
+        {
+            value = Mathf.Clamp(value, 0, maxValue);
 
-        value = Mathf.Clamp(value, 0, maxValue);
+            if (value <= 0)
+            {
+                zeroEvent.Invoke();
+            }
+        }
+        updateValueEvent.Invoke();
     }
 
     public void SetValueFromRotationY(Transform transformObj)
