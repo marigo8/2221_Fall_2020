@@ -27,7 +27,7 @@ public class PlayerFireBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetButtonDown("Fire1")) return;
+        if (!Input.GetButtonDown("Fire2")) return;
         if (ammoCount.value <= 0) return;
         if (characterState.currentState != CharacterStateData.States.Walking) return;
 

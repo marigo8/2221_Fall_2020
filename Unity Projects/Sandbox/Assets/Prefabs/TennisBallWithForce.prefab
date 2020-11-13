@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5317687148080794847}
   - component: {fileID: 9177295820145189458}
   - component: {fileID: 1584244407656580715}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: TennisBallWithForce
   m_TagString: Distraction
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1584244407656580715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8795255650989543911}
   - component: {fileID: 1394598451626783220}
-  - component: {fileID: 356841955032012549}
+  - component: {fileID: 7549944000918951799}
   m_Layer: 26
   m_Name: Player Pick Up Radius
   m_TagString: Untagged
@@ -175,7 +175,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &356841955032012549
+--- !u!114 &7549944000918951799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,11 +184,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2521874276201398954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252f4e55fe5cfe04fa3cd57c03e507dc, type: 3}
+  m_Script: {fileID: 11500000, guid: fa4ef7da93159b64e8895bc784c929bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filterTag: Player
-  triggerEnterEvent:
+  data: {fileID: 11400000, guid: 407e6324a65e29c48ac0646100dbb96f, type: 2}
+  checkIfMaxed: 1
+  pickUpEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 407e6324a65e29c48ac0646100dbb96f, type: 2}
@@ -215,12 +216,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerStayEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2642608224754795635
 GameObject:
   m_ObjectHideFlags: 0

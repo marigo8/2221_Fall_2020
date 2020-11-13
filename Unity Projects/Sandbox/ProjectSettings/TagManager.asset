@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Collide With Player
   - 
   - NPC
   - NPC Distraction
@@ -28,7 +28,7 @@ TagManager:
   - 
   - 
   - Ignore Physics
-  - 
+  - Ignore Player
   - 
   - Camera
   - 

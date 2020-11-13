@@ -67,6 +67,11 @@ public class FloatData : ScriptableData
         transformObj.eulerAngles = rotation;
     }
 
+    public override bool CanBeAltered()
+    {
+        return !IsMaxed;
+    }
+
     public override string GetString()
     {
         var text = label + ": " + value.ToString("F1");

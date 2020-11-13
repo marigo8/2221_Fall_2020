@@ -62,6 +62,11 @@ public class IntData : ScriptableData
         updateValueEvent.Invoke();
     }
 
+    public override bool CanBeAltered()
+    {
+        return !IsMaxed;
+    }
+
     public override string GetString()
     {
         var text = label + ": " + value;
