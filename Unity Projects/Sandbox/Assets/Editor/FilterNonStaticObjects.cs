@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 
+// Script from https://www.spreys.com/unity-how-to-quickly-identify-static-objects/
 public class FilterNonStaticObjects : EditorWindow
 {
     [MenuItem( "Custom/Select NavigationStatic" )]
@@ -18,7 +19,7 @@ public class FilterNonStaticObjects : EditorWindow
         {
             StaticEditorFlags flags = GameObjectUtility.GetStaticEditorFlags( gameObject );
 
-            if ( ( flags & StaticEditorFlags.NavigationStatic ) != 0 )
+            if ( ( flags & StaticEditorFlags.LightmapStatic ) == 0 )
             {
                 gameObjectArray[ arrayPointer ] = gameObject;
                 arrayPointer += 1;

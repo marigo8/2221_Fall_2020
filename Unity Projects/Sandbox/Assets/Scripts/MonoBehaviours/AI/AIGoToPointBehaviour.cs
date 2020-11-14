@@ -10,12 +10,12 @@ public class AIGoToPointBehaviour : MonoBehaviour
 
     public void SetTargetPoint(Transform target)
     {
-        agent.destination = target.position;
+        agent.SetDestination(target.position);
     }
     
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.destination = transform.position;
+        agent.SetDestination(transform.position);
     }
 }
