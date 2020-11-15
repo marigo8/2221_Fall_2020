@@ -4,38 +4,17 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class InteractionEventsBehaviour : EventsBehaviour
 {
-    public bool toggle;
     
-    public UnityEvent onInteractionEvent, offInteractionEvent, onReadyEvent, offReadyEvent;
-
-    private Collider col;
-    private bool ready, toggleOn = true;
-
-    private void Start()
-    {
-        col = GetComponent<Collider>();
-    }
+    public UnityEvent onInteractionEvent, onReadyEvent, offReadyEvent;
+    
+    private bool ready;
 
     private void Update()
     {
         if (!ready) return;
-
-        if (Input.GetButtonDown("Interact"))
-        {
-            if (toggleOn)
-            {
-                onInteractionEvent.Invoke();
-            }
-            else
-            {
-                offInteractionEvent.Invoke();
-            }
-
-            if (toggle)
-            {
-                toggleOn = !toggleOn;
-            }
-        }
+        if (!Input.GetButtonDown("Interact")) return;
+        
+        onInteractionEvent.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)
