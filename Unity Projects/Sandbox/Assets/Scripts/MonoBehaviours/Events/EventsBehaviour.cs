@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class EventsBehaviour : MonoBehaviour
 {
-    public void DestroyCollider(Collider other)
+    public void DestroyObject(GameObject other)
+    {
+        DestroyObject(other);
+    }
+    
+    public void DestroyObject(Collider other)
     {
         Destroy(other.gameObject);
     }

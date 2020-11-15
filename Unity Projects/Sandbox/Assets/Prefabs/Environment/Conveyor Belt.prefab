@@ -1510,7 +1510,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6609503902692340693}
         m_TargetAssemblyTypeName: TriggerEventsBehaviour, Assembly-CSharp
-        m_MethodName: DestroyCollider
+        m_MethodName: DestroyObject
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
