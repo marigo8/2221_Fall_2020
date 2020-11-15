@@ -67,6 +67,11 @@ public class FloatData : ScriptableData
         transformObj.eulerAngles = rotation;
     }
 
+    public void AddDeltaTime(float modifier)
+    {
+        AddToValue(Time.deltaTime * modifier);
+    }
+
     public override bool CanBeAltered()
     {
         return !IsMaxed;

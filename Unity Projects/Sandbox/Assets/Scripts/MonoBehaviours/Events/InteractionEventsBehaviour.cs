@@ -4,7 +4,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class InteractionEventsBehaviour : EventsBehaviour
 {
-    
+    public bool holdButtonDown;
     public UnityEvent onInteractionEvent, onReadyEvent, offReadyEvent;
     
     private bool ready;
@@ -12,9 +12,20 @@ public class InteractionEventsBehaviour : EventsBehaviour
     private void Update()
     {
         if (!ready) return;
-        if (!Input.GetButtonDown("Interact")) return;
-        
-        onInteractionEvent.Invoke();
+        if (holdButtonDown)
+        {
+            if (Input.GetButton("Interact"))
+            {
+                onInteractionEvent.Invoke();
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown("Interact"))
+            {
+                onInteractionEvent.Invoke();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)

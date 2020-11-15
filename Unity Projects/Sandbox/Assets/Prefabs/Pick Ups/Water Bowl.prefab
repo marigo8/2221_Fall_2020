@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6792143679960133517
 Transform:
@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8243685767025581922
 MonoBehaviour:
@@ -58,25 +58,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce07e2e0f8988b14a93a65a660cd38e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggle: 0
+  holdButtonDown: 1
   onInteractionEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
         m_TargetAssemblyTypeName: FloatData, Assembly-CSharp
-        m_MethodName: SetValueToMax
-        m_Mode: 1
+        m_MethodName: AddDeltaTime
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  offInteractionEvent:
-    m_PersistentCalls:
-      m_Calls: []
   onReadyEvent:
     m_PersistentCalls:
       m_Calls:
@@ -207,7 +204,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5985795343920100441
 Transform:

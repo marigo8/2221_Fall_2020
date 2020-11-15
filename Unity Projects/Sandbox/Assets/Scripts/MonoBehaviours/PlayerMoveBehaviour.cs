@@ -14,15 +14,14 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public CharacterStateData characterState;
     
     // Variables
-    public float moveSpeed = 5f, sprintModifier = 2f, slowModifier = .5f, jumpStrength = 3.5f, tempClimbStrength;
-    public bool godMode;
+    public float moveSpeed = 5f, sprintModifier = 2f, jumpStrength = 3.5f, tempClimbStrength;
     public Vector3 parentForce = Vector3.zero;
     
     // PRIVATE PROPERTIES //
     
     // Variables
     private bool staminaCoolingDown;
-    private float rotateSpeed = 10f, speedModifier = 1f;
+    private float rotateSpeed = 10f;
     private Vector3 movement, gravityForce = Vector3.zero, knockbackForce = Vector3.zero;
     
     // Components
@@ -117,15 +116,13 @@ public class PlayerMoveBehaviour : MonoBehaviour
         var hInput = Input.GetAxis("Horizontal");
         var vInput = Input.GetAxis("Vertical");
         movement = new Vector3(hInput, 0, vInput);
-        
+
         // Sprint
-        if (Input.GetButtonDown("Sprint") && !staminaCoolingDown)
+        var speedModifier = 1f;
+        if (Input.GetButton("Sprint") && stamina.value > 0)
         {
-            if (sprintCoroutine != null) // if a coroutine is already running...
-            {
-                StopCoroutine(sprintCoroutine); // stop coroutine
-            }
-            sprintCoroutine = StartCoroutine(Sprint()); // start coroutine
+            speedModifier = sprintModifier;
+            stamina.AddToValue(-Time.deltaTime);
         }
 
         // Move Player
@@ -139,49 +136,6 @@ public class PlayerMoveBehaviour : MonoBehaviour
             rotation = Quaternion.Lerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
             transform.rotation = rotation;
         }
-    }
-
-    private IEnumerator Sprint()
-    {
-        // Sprinting Speed
-        speedModifier = sprintModifier;
-        
-        // Deplete Stamina
-        while (Input.GetButton("Sprint") && stamina.value > 0)
-        {
-            if (!godMode)
-            {
-                stamina.AddToValue(-Time.fixedDeltaTime);
-            }
-
-            yield return new WaitForFixedUpdate();
-        }
-        
-        // Stop Sprinting
-        if (stamina.value > 0)
-        {
-            // Regular Speed
-            speedModifier = 1f;
-            yield return new WaitForSeconds(1f);
-        }
-        else
-        {
-            // Slow Speed
-            staminaCoolingDown = true;
-            speedModifier = slowModifier;
-            yield return new WaitForSeconds(2f);
-        }
-        
-        // Regenerate Stamina
-        while (!stamina.IsMaxed)
-        {
-            stamina.AddToValue(Time.fixedDeltaTime);
-            yield return new WaitForFixedUpdate();
-        }
-        
-        // End
-        speedModifier = 1f;
-        staminaCoolingDown = false;
     }
 
     private void Jump()
