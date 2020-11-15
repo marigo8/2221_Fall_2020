@@ -72,6 +72,11 @@ public class FloatData : ScriptableData
         AddToValue(Time.deltaTime * modifier);
     }
 
+    public void AddDeltaTime(FloatData modifier)
+    {
+        AddDeltaTime(modifier.value);
+    }
+
     public override bool CanBeAltered()
     {
         return !IsMaxed;

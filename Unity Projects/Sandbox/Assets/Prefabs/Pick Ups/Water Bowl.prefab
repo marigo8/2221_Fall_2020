@@ -65,12 +65,12 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
         m_TargetAssemblyTypeName: FloatData, Assembly-CSharp
         m_MethodName: AddDeltaTime
-        m_Mode: 4
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: c18a73ed0f9b49a4c9fbbc17dfb42981, type: 2}
+          m_ObjectArgumentAssemblyTypeName: FloatData, Assembly-CSharp
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 1.75
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
