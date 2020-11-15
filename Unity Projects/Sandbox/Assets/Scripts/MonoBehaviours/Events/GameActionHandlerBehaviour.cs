@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class GameActionHandlerBehaviour : MonoBehaviour
+public class GameActionHandlerBehaviour : EventsBehaviour
 {
     public GameAction gameAction;
     public float delay;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class IntervalEventsBehaviour : MonoBehaviour
+public class IntervalEventsBehaviour : EventsBehaviour
 {
     public float intervalTime;
     

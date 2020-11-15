@@ -19,7 +19,7 @@ public class FilterNonStaticObjects : EditorWindow
         {
             StaticEditorFlags flags = GameObjectUtility.GetStaticEditorFlags( gameObject );
 
-            if ( ( flags & StaticEditorFlags.LightmapStatic ) == 0 )
+            if ( ( flags & StaticEditorFlags.ContributeGI ) == 0 )
             {
                 gameObjectArray[ arrayPointer ] = gameObject;
                 arrayPointer += 1;

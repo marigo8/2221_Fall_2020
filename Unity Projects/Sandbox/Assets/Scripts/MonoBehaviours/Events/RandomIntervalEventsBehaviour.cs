@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-public class RandomIntervalEventsBehaviour : MonoBehaviour
+public class RandomIntervalEventsBehaviour : EventsBehaviour
 {
     public float minTime, maxTime;
     public bool doInterval = true, intervalOnStart;

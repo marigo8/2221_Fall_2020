@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
-public class InteractionEventsBehaviour : MonoBehaviour
+public class InteractionEventsBehaviour : EventsBehaviour
 {
     public bool toggle;
     

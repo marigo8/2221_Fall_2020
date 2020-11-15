@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MonoEventsBehaviour : MonoBehaviour
+public class MonoEventsBehaviour : EventsBehaviour
 {
     public UnityEvent startEvent, updateEvent, enableEvent, destroyEvent;
 
