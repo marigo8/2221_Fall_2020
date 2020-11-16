@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerStamina
   m_EditorClassIdentifier: 
   label: Stamina
-  value: 2.2449362
-  maxValue: 5
+  value: 7
+  maxValue: 7
   useClamp: 1
   updateValueEvent:
     m_PersistentCalls:
