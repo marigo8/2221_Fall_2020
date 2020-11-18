@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBehaviour : MonoBehaviour
 {
-    public AIBrainBase brain, attackBrain;
+    public AIBrainBase brain, attackBrain, damagedBrain;
     public Transform target;
     public List<Transform> patrolPoints;
 

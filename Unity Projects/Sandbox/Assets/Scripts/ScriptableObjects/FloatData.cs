@@ -17,6 +17,11 @@ public class FloatData : ScriptableData
         ClampValue();
     }
 
+    public void AddToValue(FloatData data)
+    {
+        AddToValue(data.value);
+    }
+
     public void SetValue(float amount)
     {
         value = amount;
