@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1860761440774259558}
   - component: {fileID: 5317687148080794847}
   - component: {fileID: 9177295820145189458}
-  - component: {fileID: 1584244407656580715}
+  - component: {fileID: 2239358549847632937}
   m_Layer: 21
   m_Name: TennisBallWithForce
   m_TagString: Distraction
@@ -116,7 +116,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &1584244407656580715
+--- !u!114 &2239358549847632937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,11 +125,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 75041666896446590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3864b943d460e044699f7bb3d8976b55, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac50c9138fdd494fb85bd4d7a3f896e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   force: {x: 0, y: 100, z: 500}
-  lifeTime: 5
 --- !u!1 &2521874276201398954
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,10 +203,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1584244407656580715}
-        m_TargetAssemblyTypeName: ProjectileBehaviour, Assembly-CSharp
-        m_MethodName: DestroyProjectile
-        m_Mode: 1
+      - m_Target: {fileID: 75041666896446590}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -280,7 +279,7 @@ MonoBehaviour:
   triggerStayEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1584244407656580715}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProjectileBehaviour, Assembly-CSharp
         m_MethodName: Decay
         m_Mode: 1
@@ -359,7 +358,7 @@ MonoBehaviour:
   triggerStayEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1584244407656580715}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProjectileBehaviour, Assembly-CSharp
         m_MethodName: DistractEnemy
         m_Mode: 0

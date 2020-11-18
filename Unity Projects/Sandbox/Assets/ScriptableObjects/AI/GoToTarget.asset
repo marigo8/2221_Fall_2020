@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e2ebfe896c8b444bab7fe47f910dcb, type: 3}
   m_Name: GoToTarget
   m_EditorClassIdentifier: 
-  onNavigateEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  baseSpeedModifier: 1

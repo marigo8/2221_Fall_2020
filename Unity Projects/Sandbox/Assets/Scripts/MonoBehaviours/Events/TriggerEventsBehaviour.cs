@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
@@ -9,7 +10,7 @@ public class TriggerEventsBehaviour : EventsBehaviour
     public UnityEvent<Collider> triggerEnterEvent;
     public UnityEvent<Collider> triggerStayEvent;
     public UnityEvent<Collider> triggerExitEvent;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (filterTag != "") // If there is no tag, just invoke the event.

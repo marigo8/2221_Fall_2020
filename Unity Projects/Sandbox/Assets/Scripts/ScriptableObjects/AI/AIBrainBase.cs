@@ -5,12 +5,14 @@ using UnityEngine.Events;
 
 public class AIBrainBase : ScriptableObject
 {
-    public virtual void OnNavigate(AIBehaviour ai)
+    public float baseSpeedModifier = 1f;
+    
+    public virtual void Activate(AIBehaviour ai)
     {
-        
+        ai.agent.speed = ai.baseSpeed * baseSpeedModifier;
     }
 
-    public virtual void OnDestination(AIBehaviour ai)
+    public virtual void OnUpdate(AIBehaviour ai)
     {
         
     }

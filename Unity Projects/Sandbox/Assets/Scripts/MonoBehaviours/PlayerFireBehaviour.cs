@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerFireBehaviour : MonoBehaviour
 {
     public CharacterStateData characterState;
-    public InstanceBehaviour projectile;
+    public GameObject projectile;
     public Transform firePoint;
     public float startDelay, endDelay;
 
@@ -54,7 +54,7 @@ public class PlayerFireBehaviour : MonoBehaviour
             rot.x = 0;
             transform.rotation = Quaternion.Euler(rot);
         }
-        projectile.CreateInstance(firePoint);
+        Instantiate(projectile, firePoint.position, firePoint.rotation);
         ammoCount.AddToValue(-1);
 
         yield return endWait;

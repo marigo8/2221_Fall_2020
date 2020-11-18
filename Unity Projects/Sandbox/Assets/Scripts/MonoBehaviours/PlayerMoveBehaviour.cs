@@ -14,7 +14,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public CharacterStateData characterState;
     
     // Variables
-    public float moveSpeed = 5f, sprintModifier = 2f, jumpStrength = 3.5f, tempClimbStrength;
+    public float moveSpeed = 5f, sprintModifier = 2f, jumpStrength = 3.5f, dashSpeed = 7.5f, tempClimbStrength;
     public Vector3 parentForce = Vector3.zero;
     
     // PRIVATE PROPERTIES //
@@ -77,6 +77,10 @@ public class PlayerMoveBehaviour : MonoBehaviour
             
             case CharacterStateData.States.Stopped:
                 
+                break;
+            
+            case CharacterStateData.States.Attacking:
+                Dash();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -156,6 +160,11 @@ public class PlayerMoveBehaviour : MonoBehaviour
             gravityForce.y = jumpStrength;
             jumpCount.AddToValue(1);
         }
+    }
+
+    private void Dash()
+    {
+        movement = transform.forward * dashSpeed;
     }
 
     private void TempClimb()

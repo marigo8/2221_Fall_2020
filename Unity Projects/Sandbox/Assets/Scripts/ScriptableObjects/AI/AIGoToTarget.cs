@@ -5,15 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI/Go To Target")]
 public class AIGoToTarget : AIBrainBase
 {
-    public override void OnNavigate(AIBehaviour ai)
-    {
-        base.OnNavigate(ai);
-        ai.agent.destination = ai.target;
-    }
 
-    public override void OnDestination(AIBehaviour ai)
+    public override void OnUpdate(AIBehaviour ai)
     {
-        base.OnDestination(ai);
-        Debug.Log("Hip Hip Hooray");
+        if (ai.target == null) return;
+        base.OnUpdate(ai);
+        ai.agent.destination = ai.target.position;
     }
 }

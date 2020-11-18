@@ -7,7 +7,8 @@ public class CharacterStateData : ScriptableObject
     {
         Walking,
         Throwing,
-        Stopped
+        Stopped,
+        Attacking
     }
 
     public States currentState;

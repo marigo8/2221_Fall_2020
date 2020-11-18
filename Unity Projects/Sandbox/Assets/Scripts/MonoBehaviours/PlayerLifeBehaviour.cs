@@ -12,7 +12,9 @@ public class PlayerLifeBehaviour : MonoBehaviour
     public Vector3Data spawnPoint;
     public FloatData spawnDirection;
     public float respawnTime;
-    
+
+    public GameAction deathAction;
+
     private MeshRenderer meshRenderer;
     private CharacterController controller;
     private PlayerMoveBehaviour playerMove;
@@ -32,6 +34,7 @@ public class PlayerLifeBehaviour : MonoBehaviour
 
     public void Die()
     {
+        deathAction.Raise();
         StartCoroutine(DeathCoroutine());
     }
 
