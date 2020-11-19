@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &187304271
 MonoBehaviour:
@@ -181,7 +181,19 @@ MonoBehaviour:
       m_Calls: []
   triggerExitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1365168963}
+        m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
+        m_MethodName: SwapBrain
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 538a2cb38344a1c4093b7233d316d866, type: 2}
+          m_ObjectArgumentAssemblyTypeName: AIBrainBase, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2139557775
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +206,7 @@ GameObject:
   - component: {fileID: 2139557778}
   - component: {fileID: 2139557777}
   m_Layer: 9
-  m_Name: Circling Radius
+  m_Name: Attack Ready Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +237,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2139557777
 MonoBehaviour:
@@ -245,11 +257,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1365168963}
         m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
-        m_MethodName: SwapBrain
-        m_Mode: 2
+        m_MethodName: StartWaitToAttack
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 639f11564a734474885fe9374b0f57de, type: 2}
-          m_ObjectArgumentAssemblyTypeName: AIBrainBase, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -257,11 +269,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1365168963}
         m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
-        m_MethodName: StartWaitToAttack
-        m_Mode: 1
+        m_MethodName: SwapBrain
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 639f11564a734474885fe9374b0f57de, type: 2}
+          m_ObjectArgumentAssemblyTypeName: AIBrainBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -273,6 +285,18 @@ MonoBehaviour:
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1365168963}
+        m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
+        m_MethodName: EndWaitToAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1365168963}
         m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
         m_MethodName: SwapBrain
@@ -298,6 +322,7 @@ GameObject:
   - component: {fileID: 2808646188806757091}
   - component: {fileID: 622262082}
   - component: {fileID: 1365168963}
+  - component: {fileID: 1383894839}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -383,11 +408,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 6
   m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 180
-  m_StoppingDistance: 0
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -407,10 +432,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad73461b2408c6849841a03b574671b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: a3d66682c41f2ff469c6b38036ba475a, type: 2}
+  brain: {fileID: 11400000, guid: 538a2cb38344a1c4093b7233d316d866, type: 2}
   attackBrain: {fileID: 11400000, guid: 9926b0c595e15d84a8069349a98eff42, type: 2}
+  damagedBrain: {fileID: 0}
   target: {fileID: 0}
-  patrolPoints: []
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   agent: {fileID: 0}
   baseSpeed: 4
   circleDirection: 0
@@ -454,6 +492,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5479096931616264244}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   endAttackEvent:
     m_PersistentCalls:
@@ -505,6 +555,49 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5479096931616264244}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1383894839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2808646188806757089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c51328d18c6aa4793deee010b57120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
+  health: 6
+  weakAttack: 1
+  strongAttack: 2
+  onZero:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2808646188806757089}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5479096931616264244
 GameObject:
@@ -606,8 +699,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8816001010885697528}
-  - component: {fileID: 977960514456078804}
-  - component: {fileID: 3726116693141108402}
   - component: {fileID: 6960275539895313814}
   - component: {fileID: 7814077916447876440}
   m_Layer: 11
@@ -631,55 +722,6 @@ Transform:
   m_Father: {fileID: 2808646188806757021}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &977960514456078804
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7338379521254086959}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3726116693141108402
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7338379521254086959}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6960275539895313814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -709,14 +751,14 @@ MonoBehaviour:
   triggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2808646188806757089}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1383894839}
+        m_TargetAssemblyTypeName: AIHealthBehaviour, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

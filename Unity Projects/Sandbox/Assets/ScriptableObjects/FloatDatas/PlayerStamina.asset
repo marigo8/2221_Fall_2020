@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStamina
   m_EditorClassIdentifier: 
   label: Stamina
-  value: 0
+  value: 10
   maxValue: 10
   useClamp: 1
   updateValueEvent:

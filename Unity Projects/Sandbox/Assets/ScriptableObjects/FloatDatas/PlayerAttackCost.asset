@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerAttackCost
   m_EditorClassIdentifier: 
   label: 
-  value: -1
+  value: -0.5
   maxValue: 0
   useClamp: 0
   updateValueEvent:

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: CircleTarget
   m_EditorClassIdentifier: 
   baseSpeedModifier: 0.5
+  stoppingDistance: 0

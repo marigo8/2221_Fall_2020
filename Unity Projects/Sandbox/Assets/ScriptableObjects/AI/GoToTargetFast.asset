@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GoToTargetFast
   m_EditorClassIdentifier: 
   baseSpeedModifier: 1.5
+  stoppingDistance: 0

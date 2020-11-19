@@ -87,6 +87,7 @@ public class AIBehaviour : MonoBehaviour
         var attackWait = Random.Range(attackWaitMin, attackWaitMax);
         yield return new WaitForSeconds(attackWait);
 
+        attackWaitCoroutine = null;
         StartCoroutine(Attack());
     }
 }

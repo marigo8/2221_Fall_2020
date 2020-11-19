@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GoAwayFromTarget
   m_EditorClassIdentifier: 
   baseSpeedModifier: 1
+  stoppingDistance: 0
