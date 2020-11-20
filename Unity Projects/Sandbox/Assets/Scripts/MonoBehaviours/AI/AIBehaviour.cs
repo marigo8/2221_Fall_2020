@@ -1,15 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBehaviour : MonoBehaviour
 {
-    public FloatData chaseSpeed, patrolSpeed;
+    public FloatData chaseSpeed, patrolSpeed, attackDelay;
     
     public Vector3List patrolPoints;
 
+    public UnityEvent attackEvent, attackEndEvent;
+
     private int currentPatrolPoint;
+    private bool attackMode;
     
     private List<AITargetBehaviour> potentialTargets = new List<AITargetBehaviour>();
 
@@ -77,5 +82,28 @@ public class AIBehaviour : MonoBehaviour
     {
         agent.speed = patrolSpeed.value;
         agent.destination = patrolPoints.vector3List[currentPatrolPoint];
+    }
+
+    public void StartAttack()
+    {
+        if (attackMode) return;
+        attackMode = true;
+
+        StartCoroutine(Attack());
+    }
+
+    public IEnumerator Attack()
+    {
+        var delay = Random.Range(attackDelay.value, attackDelay.maxValue);
+        
+        yield return new WaitForSeconds(delay);
+        
+        attackEvent.Invoke();
+        
+        yield return new WaitForSeconds(1f);
+        
+        attackEndEvent.Invoke();
+        
+        attackMode = false;
     }
 }

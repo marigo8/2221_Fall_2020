@@ -304,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5557420370008331789}
   - component: {fileID: 1130044230848758856}
-  - component: {fileID: 7383635063517156834}
+  - component: {fileID: 5107145349098721657}
   m_Layer: 12
   m_Name: Distraction Radius
   m_TagString: Untagged
@@ -339,7 +339,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 48
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7383635063517156834
+--- !u!114 &5107145349098721657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,28 +348,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4460926900447965864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252f4e55fe5cfe04fa3cd57c03e507dc, type: 3}
+  m_Script: {fileID: 11500000, guid: a611a3a86c67b2e43a1ea07f1208d2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filterTag: Enemy
-  triggerEnterEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerStayEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProjectileBehaviour, Assembly-CSharp
-        m_MethodName: DistractEnemy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  triggerExitEvent:
+  priority: 200
+  minDistance: 0
+  arriveEvent:
     m_PersistentCalls:
       m_Calls: []
