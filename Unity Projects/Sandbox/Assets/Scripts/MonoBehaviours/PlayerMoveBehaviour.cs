@@ -38,6 +38,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
     
     public void AddForce(Vector3 addedForce)
     {
+        addedForce.y = 0;
         knockbackForce += addedForce;
     }
 

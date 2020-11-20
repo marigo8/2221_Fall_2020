@@ -68,13 +68,18 @@ public class AIBehaviour : MonoBehaviour
         var highestPriority = potentialTargets[0];
         foreach (var potentialTarget in potentialTargets)
         {
-            if (potentialTarget.priority > highestPriority.priority)
-            {
-                highestPriority = potentialTarget;
-            }
+            if (potentialTarget.priority <= highestPriority.priority) continue;
+            
+            if (!agent.hasPath) continue;
+            
+            highestPriority = potentialTarget;
         }
 
-        if (highestPriority == null) return;
+        if (highestPriority == null)
+        {
+            Patrol();
+            return;
+        }
         agent.destination = highestPriority.transform.position;
     }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Collider))]
 public class ConveyorBehaviour : MonoBehaviour
@@ -14,13 +15,25 @@ public class ConveyorBehaviour : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         other.transform.position += transform.forward * speed * Time.fixedDeltaTime;
-        if (!other.CompareTag("Player")) return;
-        other.GetComponent<PlayerMoveBehaviour>().parentForce = transform.forward * speed;
+        var player = other.GetComponent<PlayerMoveBehaviour>();
+        if (player != null)
+        {
+            player.parentForce = transform.forward * speed;
+        }
+
+        var enemy = other.GetComponent<NavMeshAgent>();
+        if (enemy != null)
+        {
+            enemy.Move(transform.forward*speed*Time.deltaTime);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-        other.GetComponent<PlayerMoveBehaviour>().parentForce = Vector3.zero;
+        var player = other.GetComponent<PlayerMoveBehaviour>();
+        if (player != null)
+        {
+            player.parentForce = Vector3.zero;
+        }
     }
 }

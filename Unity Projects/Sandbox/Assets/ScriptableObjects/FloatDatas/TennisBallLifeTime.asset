@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TennisBallLifeTime
   m_EditorClassIdentifier: 
   label: 
-  value: 5
+  value: 15
   maxValue: 0
   useClamp: 0
   updateValueEvent:

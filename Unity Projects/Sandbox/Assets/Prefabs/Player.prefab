@@ -273,7 +273,7 @@ MonoBehaviour:
   jumpStrength: 4
   dashSpeed: 10
   tempClimbStrength: 4
-  knockBackStrength: 20
+  knockBackStrength: 30
   parentForce: {x: 0, y: 0, z: 0}
 --- !u!114 &1209158905
 MonoBehaviour:

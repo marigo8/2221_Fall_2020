@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyChaseSpeed
   m_EditorClassIdentifier: 
   label: 
-  value: 6
+  value: 5
   maxValue: 0
   useClamp: 0
   updateValueEvent:
