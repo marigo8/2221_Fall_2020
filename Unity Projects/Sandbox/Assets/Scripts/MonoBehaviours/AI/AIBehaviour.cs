@@ -1,93 +1,81 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBehaviour : MonoBehaviour
 {
-    public AIBrainBase brain, attackBrain, damagedBrain;
-    public Transform target;
-    public List<Transform> patrolPoints;
+    public FloatData chaseSpeed, patrolSpeed;
+    
+    public Vector3List patrolPoints;
 
-    public NavMeshAgent agent;
-    public float baseSpeed, circleDirection, attackWaitMin, attackWaitMax;
+    private int currentPatrolPoint;
+    
+    private List<AITargetBehaviour> potentialTargets = new List<AITargetBehaviour>();
 
-    public UnityEvent attackEvent, endAttackEvent;
+    private NavMeshAgent agent;
 
-    private Coroutine attackWaitCoroutine;
-
-    private readonly WaitForSeconds attackTimeOut = new WaitForSeconds(1);
-
-    public void SetTarget(Collider newTarget)
+    public void AddPotentialTarget(AITargetBehaviour target)
     {
-        target = newTarget.transform;
+        if (potentialTargets.Contains(target)) return;
+        potentialTargets.Add(target);
     }
 
-    public void StartWaitToAttack()
+    public bool GoToRandomPatrolPoint()
     {
-        if (attackWaitCoroutine != null) return;
-
-        attackWaitCoroutine = StartCoroutine(WaitToAttack());
-    }
-
-    public void EndWaitToAttack()
-    {
-        if (attackWaitCoroutine == null) return;
-        StopCoroutine(attackWaitCoroutine);
-        attackWaitCoroutine = null;
-    }
-
-    public void EndAttack()
-    {
-        endAttackEvent.Invoke();
+        Debug.Log("GoToRandomPoint");
+        if (patrolPoints.vector3List.Count < 2) return false; // don't loop.
+        var newPatrolPoint = Random.Range(0, patrolPoints.vector3List.Count-1);
+        if (currentPatrolPoint != newPatrolPoint)
+        {
+            currentPatrolPoint = newPatrolPoint;
+            return false; // stop loop.
+        }
+        else
+        {
+            return true; // continue loop.
+        }
     }
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = baseSpeed;
-        
-        if (brain != null)
+        GoToRandomPatrolPoint();
+    }
+
+    private void FixedUpdate()
+    {
+        if (potentialTargets.Count <= 0)
         {
-            brain.Activate(this);
+            Patrol();
         }
+        else
+        {
+            Chase();
+        }
+
+        potentialTargets.Clear();
     }
 
-    private void Update()
+    private void Chase()
     {
-        brain.OnUpdate(this);
+        agent.speed = chaseSpeed.value;
+        var highestPriority = potentialTargets[0];
+        foreach (var potentialTarget in potentialTargets)
+        {
+            if (potentialTarget.priority > highestPriority.priority)
+            {
+                highestPriority = potentialTarget;
+            }
+        }
+
+        if (highestPriority == null) return;
+        agent.destination = highestPriority.transform.position;
     }
 
-    public void SwapBrain(AIBrainBase newBrain)
+    private void Patrol()
     {
-        brain = newBrain;
-        brain.Activate(this);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (agent == null) return;
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(agent.destination,.25f);
-    }
-
-    private IEnumerator Attack()
-    {
-        attackEvent.Invoke();
-        SwapBrain(attackBrain);
-        yield return attackTimeOut;
-
-        EndAttack();
-    }
-
-    private IEnumerator WaitToAttack()
-    {
-        var attackWait = Random.Range(attackWaitMin, attackWaitMax);
-        yield return new WaitForSeconds(attackWait);
-
-        attackWaitCoroutine = null;
-        StartCoroutine(Attack());
+        agent.speed = patrolSpeed.value;
+        agent.destination = patrolPoints.vector3List[currentPatrolPoint];
     }
 }
