@@ -83,27 +83,4 @@ public class AIBehaviour : MonoBehaviour
         agent.speed = patrolSpeed.value;
         agent.destination = patrolPoints.vector3List[currentPatrolPoint];
     }
-
-    public void StartAttack()
-    {
-        if (attackMode) return;
-        attackMode = true;
-
-        StartCoroutine(Attack());
-    }
-
-    public IEnumerator Attack()
-    {
-        var delay = Random.Range(attackDelay.value, attackDelay.maxValue);
-        
-        yield return new WaitForSeconds(delay);
-        
-        attackEvent.Invoke();
-        
-        yield return new WaitForSeconds(1f);
-        
-        attackEndEvent.Invoke();
-        
-        attackMode = false;
-    }
 }

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5317687148080794847}
   - component: {fileID: 9177295820145189458}
   - component: {fileID: 2239358549847632937}
+  - component: {fileID: 6577132934962915419}
+  - component: {fileID: 5682304017095546324}
   m_Layer: 21
   m_Name: TennisBallWithForce
   m_TagString: Distraction
@@ -129,6 +131,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: {x: 0, y: 100, z: 500}
+--- !u!114 &6577132934962915419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75041666896446590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac03928564231d46bc7047fb75740f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 75041666896446590}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5682304017095546324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75041666896446590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb163c50e7124de4daec5356ff8d59ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  updateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  enableEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6577132934962915419}
+        m_TargetAssemblyTypeName: TimerEventsBehaviour, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: aac8a47038c2bd7419fc8ea796c93935, type: 2}
+          m_ObjectArgumentAssemblyTypeName: FloatData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  destroyEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2521874276201398954
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +417,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 200
-  minDistance: 0
-  arriveEvent:
-    m_PersistentCalls:
-      m_Calls: []

@@ -160,7 +160,6 @@ GameObject:
   - component: {fileID: 3217656847483635434}
   - component: {fileID: 2082012732}
   - component: {fileID: 646031856}
-  - component: {fileID: 1604246277}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -268,11 +267,13 @@ MonoBehaviour:
   jumpCount: {fileID: 11400000, guid: 7071daad3b2e9504faa27291e25673c2, type: 2}
   stamina: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
   characterState: {fileID: 11400000, guid: a647236b92ffe4c409e4f45908abb736, type: 2}
+  knockBackAction: {fileID: 11400000, guid: 4f862035fd61319458f65526a81d5d8f, type: 2}
   moveSpeed: 5
   sprintModifier: 1.5
   jumpStrength: 4
   dashSpeed: 10
   tempClimbStrength: 4
+  knockBackStrength: 20
   parentForce: {x: 0, y: 0, z: 0}
 --- !u!114 &1209158905
 MonoBehaviour:
@@ -371,62 +372,6 @@ MonoBehaviour:
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1604246277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052351550028842447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9294074b3d1b6004b85a72f2d3dc2285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerState: {fileID: 11400000, guid: a647236b92ffe4c409e4f45908abb736, type: 2}
-  attackLength: 0.25
-  attackEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
-        m_TargetAssemblyTypeName: FloatData, Assembly-CSharp
-        m_MethodName: AddToValue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: d1d7c5d3686beff439c6c0858e2e6f22, type: 2}
-          m_ObjectArgumentAssemblyTypeName: FloatData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  endAttackEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6461249827396113802
 GameObject:
   m_ObjectHideFlags: 0
