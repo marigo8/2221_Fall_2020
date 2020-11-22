@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BossAttack
   m_EditorClassIdentifier: 
   label: 
-  value: 0
+  value: -50
   maxValue: 0
   useClamp: 0
   updateValueEvent:

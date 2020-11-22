@@ -13,6 +13,8 @@ public class AIBehaviour : MonoBehaviour
 
     public Vector3List patrolPoints;
 
+    public GameAction bossStunAction;
+
     public WaitData stunTime;
 
     private int currentPatrolPoint;
@@ -96,6 +98,9 @@ public class AIBehaviour : MonoBehaviour
         }
 
         if (agent.velocity.magnitude < 10) return;
+
+        bossStunAction.Raise();
+        
         StartCoroutine(Stun());
     }
 
