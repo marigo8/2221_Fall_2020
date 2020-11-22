@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaterDrinkRate
   m_EditorClassIdentifier: 
   label: 
-  value: 4
+  value: 10
   maxValue: 0
   useClamp: 0
   updateValueEvent:

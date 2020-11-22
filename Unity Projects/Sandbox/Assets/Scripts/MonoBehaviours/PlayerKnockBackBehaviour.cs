@@ -11,7 +11,7 @@ public class PlayerKnockBackBehaviour : MonoBehaviour
         var player = other.GetComponent<PlayerMoveBehaviour>();
         if (player == null) return;
         
-        var knockBackVector = player.transform.position - transform.position;
+        var knockBackVector = (player.transform.position - transform.position).normalized;
         
         player.AddForce(knockBackVector * knockBackForce.value);
     }

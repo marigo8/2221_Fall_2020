@@ -9,13 +9,15 @@ public class AIBehaviour : MonoBehaviour
 {
     public bool debugVelocity;
 
-    public FloatData chaseSpeed, patrolSpeed;
+    public FloatData chaseSpeed, patrolSpeed, hitWallSpeed;
 
     public Vector3List patrolPoints;
 
     public GameAction bossStunAction;
 
     public WaitData stunTime;
+
+    public UnityEvent criticalWallHit;
 
     private int currentPatrolPoint;
     private bool hasPatrolPoints, canMove = true;
@@ -34,6 +36,11 @@ public class AIBehaviour : MonoBehaviour
     {
         if (!potentialTargets.Contains(target)) return;
         potentialTargets.Remove(target);
+    }
+
+    public void ClearPotentialTargets()
+    {
+        potentialTargets.Clear();
     }
 
     public bool GoToRandomPatrolPoint()
@@ -64,7 +71,7 @@ public class AIBehaviour : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (canMove)
         {
@@ -90,16 +97,21 @@ public class AIBehaviour : MonoBehaviour
         }
     }
 
-    public void OnWallHit()
+    public void OnWallHit(bool isCritical)
     {
         if (debugVelocity)
         {
             Debug.Log(agent.velocity.magnitude);
         }
 
-        if (agent.velocity.magnitude < 10) return;
+        if (agent.velocity.magnitude < hitWallSpeed.value) return;
 
         bossStunAction.Raise();
+
+        if (isCritical)
+        {
+            criticalWallHit.Invoke();
+        }
         
         StartCoroutine(Stun());
     }
@@ -117,14 +129,21 @@ private void Chase()
         var highestPriority = potentialTargets[0];
         foreach (var potentialTarget in potentialTargets)
         {
+            if (potentialTarget == null)
+            {
+                potentialTargets.Remove(potentialTarget);
+                break;
+            }
+            
             if (potentialTarget.priority <= highestPriority.priority) continue;
             
             if (!agent.hasPath) continue;
 
-            if (potentialTarget.isActiveAndEnabled == false)
+            if (potentialTarget.isActiveAndEnabled == false || potentialTarget.priority <= 0)
             {
+                Debug.Log(potentialTarget + " has allegedly been removed");
                 potentialTargets.Remove(potentialTarget);
-                continue;
+                break;
             }
             
             highestPriority = potentialTarget;

@@ -109,10 +109,10 @@ public class PlayerMoveBehaviour : MonoBehaviour
             knockbackForce = Vector3.zero;
         }
 
-        if (knockbackForce.magnitude > 0)
-        {
-            movement += knockbackForce;
-        }
+        // if (knockbackForce.magnitude > 0)
+        // {
+        //     movement += knockbackForce;
+        // }
     }
 
     private void WalkRun()

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(CharacterController))]
@@ -14,6 +15,8 @@ public class PlayerLifeBehaviour : MonoBehaviour
     public float respawnTime;
 
     public GameAction deathAction;
+
+    public UnityEvent respawnEvent;
 
     private MeshRenderer meshRenderer;
     private CharacterController controller;
@@ -56,5 +59,7 @@ public class PlayerLifeBehaviour : MonoBehaviour
         meshRenderer.enabled = true;
         controller.enabled = true;
         playerMove.enabled = true;
+        
+        respawnEvent.Invoke();
     }
 }

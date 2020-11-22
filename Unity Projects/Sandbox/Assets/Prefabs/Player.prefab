@@ -267,7 +267,6 @@ MonoBehaviour:
   jumpCount: {fileID: 11400000, guid: 7071daad3b2e9504faa27291e25673c2, type: 2}
   stamina: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
   characterState: {fileID: 11400000, guid: a647236b92ffe4c409e4f45908abb736, type: 2}
-  knockBackAction: {fileID: 11400000, guid: 4f862035fd61319458f65526a81d5d8f, type: 2}
   moveSpeed: 5
   sprintModifier: 1.5
   jumpStrength: 4
@@ -292,6 +291,21 @@ MonoBehaviour:
   spawnDirection: {fileID: 11400000, guid: d03605dc61983f148a498ceadcc65532, type: 2}
   respawnTime: 2
   deathAction: {fileID: 11400000, guid: 42be37281f71f9347bda0b45b1006840, type: 2}
+  respawnEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 1d04e86e5134e004db5930575ed4d9d0, type: 2}
+        m_TargetAssemblyTypeName: FloatData, Assembly-CSharp
+        m_MethodName: SetValueToMax
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1209158906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4114967471564401701, guid: 3b19191fc2a271e47ac84abe16c480e5, type: 3}
       propertyPath: m_Name
-      value: AI Target
+      value: Enemy AI Target
       objectReference: {fileID: 0}
     - target: {fileID: 5879673323106105180, guid: 3b19191fc2a271e47ac84abe16c480e5, type: 3}
       propertyPath: m_RootOrder

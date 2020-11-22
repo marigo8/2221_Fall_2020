@@ -5,6 +5,11 @@ public class AITargetBehaviour : MonoBehaviour
 {
     public int priority;
 
+    public void SetPriority(int value)
+    {
+        priority = value;
+    }
+
     public void CallAI(Collider other)
     {
         var ai = other.GetComponent<AIBehaviour>();

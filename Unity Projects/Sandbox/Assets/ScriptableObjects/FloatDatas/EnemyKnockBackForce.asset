@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyKnockBackForce
   m_EditorClassIdentifier: 
   label: 
-  value: 30
+  value: 15
   maxValue: 0
   useClamp: 0
   updateValueEvent:

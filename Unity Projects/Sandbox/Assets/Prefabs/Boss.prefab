@@ -1,39 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &692461752507216177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5233293132043563024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252f4e55fe5cfe04fa3cd57c03e507dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filterTag: BossWall
-  triggerEnterEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5338780434199598320}
-        m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
-        m_MethodName: OnWallHit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  triggerStayEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1842070453169101706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +20,135 @@ MonoBehaviour:
       - m_Target: {fileID: 5338780434199598320}
         m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
         m_MethodName: OnWallHit
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1989190477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849062042455498066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2d19e3a52dd54458b23a0effd1a75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameAction: {fileID: 11400000, guid: 49ffe3bf6df71474fb1870eee82213a7, type: 2}
+  delay: 0
+  handlerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5338780434199598320}
+        m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
+        m_MethodName: ClearPotentialTargets
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1989190478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849062042455498066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2d19e3a52dd54458b23a0effd1a75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameAction: {fileID: 11400000, guid: bcf837900ce9438419f8a1f7afc9e078, type: 2}
+  delay: 0
+  handlerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5338780434199598320}
+        m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
+        m_MethodName: AddPotentialTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: AITargetBehaviour, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1989190480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849062042455498066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2d19e3a52dd54458b23a0effd1a75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameAction: {fileID: 11400000, guid: 96d14cb5337ec3c4abfcdc0664fda7f1, type: 2}
+  delay: 0
+  handlerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5338780434199598320}
+        m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
+        m_MethodName: OnWallHit
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1989190481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849062042455498066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2d19e3a52dd54458b23a0effd1a75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameAction: {fileID: 11400000, guid: cc506bd1440aeaf4eb115ed006beea7c, type: 2}
+  delay: 0
+  handlerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5338780434199598320}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5338780433457737969}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -99,6 +193,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3f3e2d9dce4e17a40b38119017196c3e, type: 2}
     - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: hitWallSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ccfc2394654c5646924696e19afdca4, type: 2}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
       propertyPath: patrolPoints
       value: 
       objectReference: {fileID: 11400000, guid: 3be174aea52d72e43b41b713c43b3475, type: 2}
@@ -114,6 +212,42 @@ PrefabInstance:
       propertyPath: bossWallHitAction
       value: 
       objectReference: {fileID: 11400000, guid: 2c97d1a7fca9da647925af01d146700e, type: 2}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: criticalWallHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: criticalWallHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: criticalWallHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: e9813dc5434dbea448995c686709ae9f, type: 2}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: criticalWallHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: criticalWallHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: criticalWallHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameAction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: criticalWallHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: criticalWallHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 431482303154495273, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 13af313cf3699cd4083d9c135f5549ab, type: 2}
     - target: {fileID: 2808646188806757021, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -209,6 +343,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2808646188806757089, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
   m_PrefabInstance: {fileID: 5338780432871393203}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &5338780433457737969 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 622262082, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+  m_PrefabInstance: {fileID: 5338780432871393203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5338780434199598320 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
@@ -220,8 +359,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad73461b2408c6849841a03b574671b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5233293132043563024 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 195709654706796451, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
-  m_PrefabInstance: {fileID: 5338780432871393203}
-  m_PrefabAsset: {fileID: 0}

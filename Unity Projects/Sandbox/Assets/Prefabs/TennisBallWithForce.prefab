@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2239358549847632937}
   - component: {fileID: 6577132934962915419}
   - component: {fileID: 5682304017095546324}
+  - component: {fileID: 2423402060639032742}
   m_Layer: 21
   m_Name: TennisBallWithForce
   m_TagString: Distraction
@@ -146,10 +147,10 @@ MonoBehaviour:
   timerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 75041666896446590}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2423402060639032742}
+        m_TargetAssemblyTypeName: SelfDestructBehaviour, Assembly-CSharp
+        m_MethodName: DestroyOnNextFrame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -194,6 +195,18 @@ MonoBehaviour:
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2423402060639032742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75041666896446590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f676ee237a97c646ad1ba4c61550fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2521874276201398954
 GameObject:
   m_ObjectHideFlags: 0
