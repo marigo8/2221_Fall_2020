@@ -1,18 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &8186823596072120520
-BoxCollider:
+--- !u!114 &1842070453169101706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849062042455498066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2d19e3a52dd54458b23a0effd1a75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameAction: {fileID: 11400000, guid: 2c97d1a7fca9da647925af01d146700e, type: 2}
+  delay: 0
+  handlerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5338780434199598320}
+        m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
+        m_MethodName: OnWallHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &692461752507216177
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5233293132043563024}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252f4e55fe5cfe04fa3cd57c03e507dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filterTag: BossWall
+  triggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5338780434199598320}
+        m_TargetAssemblyTypeName: AIBehaviour, Assembly-CSharp
+        m_MethodName: OnWallHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  triggerStayEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5338780432871393203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24,6 +74,22 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 622262082, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 622262082, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_Acceleration
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 622262082, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: stunTime
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c88e909e5250d146bfc7396683047cc, type: 2}
     - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
       propertyPath: chaseSpeed
       value: 
@@ -32,6 +98,10 @@ PrefabInstance:
       propertyPath: patrolSpeed
       value: 
       objectReference: {fileID: 11400000, guid: ede8315aa2c2f794e9fb50f05a711bd5, type: 2}
+    - target: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: bossWallHitAction
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c97d1a7fca9da647925af01d146700e, type: 2}
     - target: {fileID: 2808646188806757021, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -96,8 +166,48 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 5035479865722050031, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035479865722050031, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_Size.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035479865722050031, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840923630035769118, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: knockBackForce
+      value: 
+      objectReference: {fileID: 11400000, guid: 190b5896bdb03f34da8b5ab77fbb2bef, type: 2}
+    - target: {fileID: 7158774883809798338, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158774883809798338, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+--- !u!1 &7849062042455498066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2808646188806757089, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+  m_PrefabInstance: {fileID: 5338780432871393203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5338780434199598320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1365168963, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+  m_PrefabInstance: {fileID: 5338780432871393203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849062042455498066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad73461b2408c6849841a03b574671b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5233293132043563024 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 195709654706796451, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}

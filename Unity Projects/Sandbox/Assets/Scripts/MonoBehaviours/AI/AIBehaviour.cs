@@ -7,13 +7,17 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBehaviour : MonoBehaviour
 {
+    public bool debugVelocity;
+
     public FloatData chaseSpeed, patrolSpeed;
-    
+
     public Vector3List patrolPoints;
 
+    public WaitData stunTime;
+
     private int currentPatrolPoint;
-    private bool attackMode, hasPatrolPoints;
-    
+    private bool hasPatrolPoints, canMove = true;
+
     private List<AITargetBehaviour> potentialTargets = new List<AITargetBehaviour>();
 
     private NavMeshAgent agent;
@@ -33,9 +37,8 @@ public class AIBehaviour : MonoBehaviour
     public bool GoToRandomPatrolPoint()
     {
         if (!hasPatrolPoints) return false;
-        Debug.Log("GoToRandomPoint");
         if (patrolPoints.vector3List.Count < 2) return false; // don't loop.
-        var newPatrolPoint = Random.Range(0, patrolPoints.vector3List.Count-1);
+        var newPatrolPoint = Random.Range(0, patrolPoints.vector3List.Count - 1);
         if (currentPatrolPoint != newPatrolPoint)
         {
             currentPatrolPoint = newPatrolPoint;
@@ -52,28 +55,58 @@ public class AIBehaviour : MonoBehaviour
         hasPatrolPoints = patrolPoints != null;
         agent = GetComponent<NavMeshAgent>();
         GoToRandomPatrolPoint();
+
+        if (stunTime != null)
+        {
+            stunTime.Initialize();
+        }
     }
 
     private void FixedUpdate()
     {
-        if (potentialTargets.Count <= 0)
+        if (canMove)
         {
-            if (hasPatrolPoints)
+            if (potentialTargets.Count <= 0)
             {
-                Patrol();
+                if (hasPatrolPoints)
+                {
+                    Patrol();
+                }
+                else
+                {
+                    agent.destination = transform.position;
+                }
             }
             else
             {
-                agent.destination = transform.position;
+                Chase();
             }
         }
         else
         {
-            Chase();
+            agent.destination = transform.position;
         }
     }
 
-    private void Chase()
+    public void OnWallHit()
+    {
+        if (debugVelocity)
+        {
+            Debug.Log(agent.velocity.magnitude);
+        }
+
+        if (agent.velocity.magnitude < 10) return;
+        StartCoroutine(Stun());
+    }
+
+    private IEnumerator Stun()
+    {
+        canMove = false;
+        yield return stunTime.Wait();
+        canMove = true;
+    }
+
+private void Chase()
     {
         agent.speed = chaseSpeed.value;
         var highestPriority = potentialTargets[0];

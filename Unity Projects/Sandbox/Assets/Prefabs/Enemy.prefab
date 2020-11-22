@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7158774883809798338}
   - component: {fileID: 5035479865722050031}
   - component: {fileID: 431482303154495273}
+  - component: {fileID: 6840923630035769118}
   m_Layer: 9
   m_Name: Attack Radius
   m_TagString: Untagged
@@ -40,7 +41,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195709654706796451}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -73,13 +74,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 4f862035fd61319458f65526a81d5d8f, type: 2}
-        m_TargetAssemblyTypeName: Vector3GameAction, Assembly-CSharp
-        m_MethodName: RaiseFromTransform
-        m_Mode: 2
+      - m_Target: {fileID: 6840923630035769118}
+        m_TargetAssemblyTypeName: PlayerKnockBackBehaviour, Assembly-CSharp
+        m_MethodName: KnockbackPlayer
+        m_Mode: 0
         m_Arguments:
-          m_ObjectArgument: {fileID: 7158774883809798338}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -91,6 +92,19 @@ MonoBehaviour:
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6840923630035769118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195709654706796451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc977126236e6c94cb341f3a4bb6e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackForce: {fileID: 11400000, guid: 337f731dbf7cce9419c93e094f0f9194, type: 2}
 --- !u!1 &2808646188806757089
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public IntData jumpCount;
     public FloatData stamina;
     public CharacterStateData characterState;
-    public Vector3GameAction knockBackAction;
     
     // Variables
     public float moveSpeed = 5f, sprintModifier = 2f, jumpStrength = 3.5f, dashSpeed = 7.5f, tempClimbStrength, knockBackStrength;
@@ -28,13 +27,6 @@ public class PlayerMoveBehaviour : MonoBehaviour
     // Components
     private CharacterController controller;
     private Coroutine sprintCoroutine;
-
-    public void AddForceFromWorldPoint(Vector3 point)
-    {
-        var addedForce = transform.position - point;
-        
-        AddForce(addedForce * knockBackStrength);
-    }
     
     public void AddForce(Vector3 addedForce)
     {
@@ -57,10 +49,6 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // Reset ScriptableObjects
         stamina.SetValueToMax();
         jumpCount.SetValue(0);
-        
-        // Set up Knock Back Action
-
-        knockBackAction.action += AddForceFromWorldPoint;
     }
 
     private void FixedUpdate()

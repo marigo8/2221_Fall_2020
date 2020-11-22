@@ -21,7 +21,6 @@ public class PatrolPointBehaviour : MonoBehaviour
 
     private IEnumerator OnTriggerEnter(Collider other)
     {
-        Debug.Log("Oh? You're Approaching me?");
         var ai = other.GetComponent<AIBehaviour>();
         if (ai == null) yield break;
 
