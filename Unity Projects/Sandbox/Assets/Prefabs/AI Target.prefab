@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5879673323106105180}
   - component: {fileID: 2641304389313007893}
   - component: {fileID: 5554228787086835879}
+  - component: {fileID: 2470843115927427160}
   m_Layer: 13
   m_Name: AI Target
   m_TagString: Untagged
@@ -58,3 +59,49 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 16
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2470843115927427160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114967471564401701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252f4e55fe5cfe04fa3cd57c03e507dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filterTag: Enemy
+  triggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2641304389313007893}
+        m_TargetAssemblyTypeName: AITargetBehaviour, Assembly-CSharp
+        m_MethodName: CallAI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  triggerStayEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2641304389313007893}
+        m_TargetAssemblyTypeName: AITargetBehaviour, Assembly-CSharp
+        m_MethodName: RemoveFromAI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

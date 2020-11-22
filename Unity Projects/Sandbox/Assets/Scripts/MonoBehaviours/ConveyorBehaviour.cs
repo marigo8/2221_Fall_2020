@@ -24,7 +24,7 @@ public class ConveyorBehaviour : MonoBehaviour
         var enemy = other.GetComponent<NavMeshAgent>();
         if (enemy != null)
         {
-            enemy.Move(transform.forward*speed*Time.deltaTime);
+            enemy.Move(transform.forward*speed*Time.fixedDeltaTime);
         }
     }
 

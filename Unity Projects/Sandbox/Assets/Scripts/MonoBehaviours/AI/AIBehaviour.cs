@@ -7,14 +7,12 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBehaviour : MonoBehaviour
 {
-    public FloatData chaseSpeed, patrolSpeed, attackDelay;
+    public FloatData chaseSpeed, patrolSpeed;
     
     public Vector3List patrolPoints;
 
-    public UnityEvent attackEvent, attackEndEvent;
-
     private int currentPatrolPoint;
-    private bool attackMode;
+    private bool attackMode, hasPatrolPoints;
     
     private List<AITargetBehaviour> potentialTargets = new List<AITargetBehaviour>();
 
@@ -26,8 +24,15 @@ public class AIBehaviour : MonoBehaviour
         potentialTargets.Add(target);
     }
 
+    public void RemovePotentialTarget(AITargetBehaviour target)
+    {
+        if (!potentialTargets.Contains(target)) return;
+        potentialTargets.Remove(target);
+    }
+
     public bool GoToRandomPatrolPoint()
     {
+        if (!hasPatrolPoints) return false;
         Debug.Log("GoToRandomPoint");
         if (patrolPoints.vector3List.Count < 2) return false; // don't loop.
         var newPatrolPoint = Random.Range(0, patrolPoints.vector3List.Count-1);
@@ -44,6 +49,7 @@ public class AIBehaviour : MonoBehaviour
 
     private void Start()
     {
+        hasPatrolPoints = patrolPoints != null;
         agent = GetComponent<NavMeshAgent>();
         GoToRandomPatrolPoint();
     }
@@ -52,14 +58,19 @@ public class AIBehaviour : MonoBehaviour
     {
         if (potentialTargets.Count <= 0)
         {
-            Patrol();
+            if (hasPatrolPoints)
+            {
+                Patrol();
+            }
+            else
+            {
+                agent.destination = transform.position;
+            }
         }
         else
         {
             Chase();
         }
-
-        potentialTargets.Clear();
     }
 
     private void Chase()
@@ -71,6 +82,12 @@ public class AIBehaviour : MonoBehaviour
             if (potentialTarget.priority <= highestPriority.priority) continue;
             
             if (!agent.hasPath) continue;
+
+            if (potentialTarget.isActiveAndEnabled == false)
+            {
+                potentialTargets.Remove(potentialTarget);
+                continue;
+            }
             
             highestPriority = potentialTarget;
         }
