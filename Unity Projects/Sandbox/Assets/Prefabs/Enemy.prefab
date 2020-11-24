@@ -225,9 +225,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad73461b2408c6849841a03b574671b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugVelocity: 0
+  autoFindTargets: 1
   chaseSpeed: {fileID: 11400000, guid: 3a90fd4c7dd6a9841b364e34e123501a, type: 2}
   patrolSpeed: {fileID: 11400000, guid: 9daf29e3021a7bc459a13597e320c39b, type: 2}
+  hitWallSpeed: {fileID: 0}
   patrolPoints: {fileID: 11400000, guid: 07887222f7a15d74fbe7c77a58bb46fb, type: 2}
+  bossStunAction: {fileID: 0}
+  stunTime: {fileID: 0}
+  criticalWallHit:
+    m_PersistentCalls:
+      m_Calls: []
+  currentPatrolPoint: 0
 --- !u!54 &6996754596185464324
 Rigidbody:
   m_ObjectHideFlags: 0

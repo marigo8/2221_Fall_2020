@@ -14,6 +14,9 @@ public class AITargetBehaviour : MonoBehaviour
     {
         var ai = other.GetComponent<AIBehaviour>();
         if (ai == null) return;
+
+        if (!ai.autoFindTargets) return;
+        
         ai.AddPotentialTarget(this);
     }
 
@@ -21,6 +24,8 @@ public class AITargetBehaviour : MonoBehaviour
     {
         var ai = other.GetComponent<AIBehaviour>();
         if (ai == null) return;
+
+        if (!ai.autoFindTargets) return;
         ai.RemovePotentialTarget(this);
     }
 }

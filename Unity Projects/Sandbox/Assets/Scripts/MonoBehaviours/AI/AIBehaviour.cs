@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBehaviour : MonoBehaviour
 {
-    public bool debugVelocity;
+    public bool debugVelocity, autoFindTargets = true;
 
     public FloatData chaseSpeed, patrolSpeed, hitWallSpeed;
 
@@ -19,7 +19,7 @@ public class AIBehaviour : MonoBehaviour
 
     public UnityEvent criticalWallHit;
 
-    private int currentPatrolPoint;
+    public int currentPatrolPoint;
     private bool hasPatrolPoints, canMove = true;
 
     private List<AITargetBehaviour> potentialTargets = new List<AITargetBehaviour>();

@@ -24,6 +24,8 @@ public class PatrolPointBehaviour : MonoBehaviour
         var ai = other.GetComponent<AIBehaviour>();
         if (ai == null) yield break;
 
+        if (patrolPointGroup.vector3List[ai.currentPatrolPoint] != transform.position) yield break;
+
         yield return patrolDelay;
 
         while (ai.GoToRandomPatrolPoint())
