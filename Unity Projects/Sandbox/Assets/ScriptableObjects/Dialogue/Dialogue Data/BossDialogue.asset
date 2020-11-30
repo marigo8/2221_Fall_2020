@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6634f3c9542d21479e22df8f76d3f9d, type: 3}
+  m_Name: BossDialogue
+  m_EditorClassIdentifier: 
+  onDialogueStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 233e91bcf75f7ba4abadfbea469a1bc2, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7f38741f2be46f44a92fdf14ddc7be47, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  lines:
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: BORK! BORK! BORK!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: You there!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: How did you get past the guard dogs?
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: No matter.
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: You are about to meet your demise anyways.
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: BORK!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: You see these two borkers?
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: The one on the circle that makes the truck turn,
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: And the one on the thing that makes it go forward?
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: They have been trained to withstand the temptation of the green balls that
+      you keep throwing.
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: They have been trained so well that it would take hundreds of balls to
+      distract them!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: See that big container of green balls over there? Thats about as much as
+      it would take.
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: b7bcd562964a9a94382496cfd5edd142, type: 2}
+            m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+            m_MethodName: Raise
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: But don't touch it its very fragile.
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: BORK! BORK!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: Prepare to meet your demise!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: aac60a3b80ac65444939a1545385f24a, type: 2}
+            m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+            m_MethodName: Raise
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  - character: {fileID: 11400000, guid: d140705dac4f9f140a0e03386b690a85, type: 2}
+    text: Borkers! Forward!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []

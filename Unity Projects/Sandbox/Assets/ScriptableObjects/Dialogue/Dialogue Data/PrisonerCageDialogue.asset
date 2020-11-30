@@ -102,7 +102,19 @@ MonoBehaviour:
     lineData:
       lineEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 31a62ff6dddabc54796c6b0a451c964e, type: 2}
+            m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+            m_MethodName: Raise
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
     text: It's pretty high up but if you were able to make your way up here, then
       it shouldn't be a problem at all right?
@@ -111,7 +123,25 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
   - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
-    text: Hop to it!
+    text: I'm just gonna hop onto your back and you're ok with it.
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: bf7ae91cc2a03e647beadd732baf0878, type: 2}
+            m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+            m_MethodName: Raise
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: No. That wasn't a question.
     lineData:
       lineEvent:
         m_PersistentCalls:

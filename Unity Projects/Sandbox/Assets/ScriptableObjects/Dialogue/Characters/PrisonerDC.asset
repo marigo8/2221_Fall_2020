@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c3bccd621fd0d4a99078c0b01acf6c, type: 3}
   m_Name: PrisonerDC
   m_EditorClassIdentifier: 
-  characterName: Cupcakes
+  characterName: Prisoner
