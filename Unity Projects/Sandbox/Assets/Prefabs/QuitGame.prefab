@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d14f21c5aa3569489f4c93f7369f5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyHoldTime: 5
+  keyHoldTime: 3
