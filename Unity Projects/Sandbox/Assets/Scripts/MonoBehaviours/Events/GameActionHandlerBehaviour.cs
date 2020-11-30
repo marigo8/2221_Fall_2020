@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class GameActionHandlerBehaviour : EventsBehaviour
@@ -11,6 +12,11 @@ public class GameActionHandlerBehaviour : EventsBehaviour
     private void Start()
     {
         gameAction.action += HandleAction;
+    }
+
+    private void OnDestroy()
+    {
+        gameAction.action -= HandleAction;
     }
 
     private void HandleAction()

@@ -17,9 +17,21 @@ public class TimerEventsBehaviour : EventsBehaviour
         StartCoroutine(Timer(duration));
     }
 
+    public void StartTimer(WaitData wait)
+    {
+        StartCoroutine(Timer(wait));
+    }
+
     public IEnumerator Timer(float duration)
     {
         yield return new WaitForSeconds(duration);
+        
+        timerEvent.Invoke();
+    }
+
+    public IEnumerator Timer(WaitData wait)
+    {
+        yield return wait.Wait();
         
         timerEvent.Invoke();
     }

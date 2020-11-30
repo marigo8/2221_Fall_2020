@@ -9,7 +9,7 @@ public class AIBehaviour : MonoBehaviour
 {
     public bool debugVelocity, autoFindTargets = true;
 
-    public FloatData chaseSpeed, patrolSpeed, hitWallSpeed;
+    public FloatData chaseSpeed, patrolSpeed, hitWallSpeed, tennisBallChaseSpeed;
 
     public Vector3List patrolPoints;
 
@@ -125,7 +125,6 @@ public class AIBehaviour : MonoBehaviour
 
 private void Chase()
     {
-        agent.speed = chaseSpeed.value;
         var highestPriority = potentialTargets[0];
         foreach (var potentialTarget in potentialTargets)
         {
@@ -154,6 +153,8 @@ private void Chase()
             Patrol();
             return;
         }
+
+        agent.speed = highestPriority.priority >= 150 ? tennisBallChaseSpeed.value : chaseSpeed.value;
         agent.destination = highestPriority.transform.position;
     }
 
