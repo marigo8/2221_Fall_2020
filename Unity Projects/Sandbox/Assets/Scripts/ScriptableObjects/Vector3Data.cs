@@ -1,5 +1,4 @@
-﻿using UnityEditor.PackageManager;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu]
 public class Vector3Data : ScriptableData

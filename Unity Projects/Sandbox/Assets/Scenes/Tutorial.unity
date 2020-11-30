@@ -2218,8 +2218,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 62, y: -49.66272}
-  m_SizeDelta: {x: 385.02252, y: 79.05298}
+  m_AnchoredPosition: {x: 62, y: -52.76}
+  m_SizeDelta: {x: 385.02252, y: 93.138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004654571
 MonoBehaviour:
@@ -2255,7 +2255,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Enemy Dogs: Will chase you and attack you. Use Tennis Balls to distract
-    them.'
+    them. Larger enemies stagger after hitting a wall too fast.'
 --- !u!222 &2004654572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2558,3 +2558,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123639466}
   m_CullTransparentMesh: 0
+--- !u!1001 &4827184081067669305
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158496668035136468, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443380604434699250, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
+      propertyPath: m_Name
+      value: QuitGame
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0735ede581717954694a10d5f84f2b59, type: 3}
