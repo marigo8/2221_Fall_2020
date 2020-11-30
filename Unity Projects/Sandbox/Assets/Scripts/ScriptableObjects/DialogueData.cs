@@ -25,6 +25,6 @@ public class DialogueData : ScriptableObject
         public UnityEvent lineEvent;
     }
 
-    public UnityEvent onDialogueStart;
+    public UnityEvent onDialogueStart, onDialogueEnd;
     public List<Line> lines;
 }

@@ -83,12 +83,25 @@ public class PlayerMoveBehaviour : MonoBehaviour
             case CharacterStateData.States.KnockBack:
 
                 break;
+            
+            case CharacterStateData.States.Dialogue:
+                LookAt();
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
         
         // Apply Movement
         controller.Move((movement + gravityForce + knockbackForce + parentForce) * Time.deltaTime);
+    }
+
+    private void LookAt()
+    {
+        transform.LookAt(characterState.lookAtTarget);
+        var rotation = transform.eulerAngles;
+        rotation.x = 0f;
+        rotation.z = 0f;
+        transform.eulerAngles = rotation;
     }
 
     private void Gravity()

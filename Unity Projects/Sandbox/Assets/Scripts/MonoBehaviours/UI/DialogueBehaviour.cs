@@ -40,7 +40,6 @@ public class DialogueBehaviour : MonoBehaviour
         nameText.text = currentLine.character.characterName;
         dialogueText.text = currentLine.text;
         
-        currentLine.character.Raise();
         currentLine.lineData.lineEvent.Invoke();
         
         
@@ -51,5 +50,6 @@ public class DialogueBehaviour : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         playerState.currentState = CharacterStateData.States.Walking;
+        currentDialogue.onDialogueEnd.Invoke();
     }
 }

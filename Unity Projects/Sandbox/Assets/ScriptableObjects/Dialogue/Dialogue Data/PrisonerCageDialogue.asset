@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6634f3c9542d21479e22df8f76d3f9d, type: 3}
+  m_Name: PrisonerCageDialogue
+  m_EditorClassIdentifier: 
+  onDialogueStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 3d417e36f9b16bc4484d34825113f5f6, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 33db11fbf2a15ed45b846fafc03e3a5c, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  lines:
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: Bark!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: I mean hi!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: Thanks for saving me from that mean boss doggo!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: If it weren't for you I'd be stuck here forever.
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: Well anyway...
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: (effortlessly walks out of cage)
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 8986d58161609c04f9a379d64d02369c, type: 2}
+            m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+            m_MethodName: Raise
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: Lets get out of here yeah?
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: There's a big hole in the back wall up there.
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: It's pretty high up but if you were able to make your way up here, then
+      it shouldn't be a problem at all right?
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  - character: {fileID: 11400000, guid: 9e08ddd927c20e548a668f4a8d337636, type: 2}
+    text: Hop to it!
+    lineData:
+      lineEvent:
+        m_PersistentCalls:
+          m_Calls: []
