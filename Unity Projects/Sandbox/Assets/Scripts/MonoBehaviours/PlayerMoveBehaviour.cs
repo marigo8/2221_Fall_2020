@@ -69,7 +69,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
             case CharacterStateData.States.Walking:
                 WalkRun();
                 Jump();
-                TempClimb();
+                //TempClimb();
                 break;
             
             case CharacterStateData.States.Throwing:
