@@ -194,7 +194,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Water Bowls: Press E next to these to fill your Hydration Level. You need
-    hydration in order to run fast.'
+    hydration in order to run fast. Press Left Shift to run.'
 --- !u!222 &109130199
 CanvasRenderer:
   m_ObjectHideFlags: 0
