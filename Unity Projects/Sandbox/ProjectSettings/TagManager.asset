@@ -39,8 +39,8 @@ TagManager:
   - 
   - 
   - Player NPC Collision
-  - 
-  - 
+  - Ground
+  - Mini Map Icon
   m_SortingLayers:
   - name: Default
     uniqueID: 0

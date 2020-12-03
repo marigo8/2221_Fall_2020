@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 
 public class CopyTransformBehaviour : MonoBehaviour
@@ -13,7 +14,12 @@ public class CopyTransformBehaviour : MonoBehaviour
         target = newTarget;
         hasTarget = true;
     }
-    
+
+    private void Start()
+    {
+        hasTarget = target != null;
+    }
+
     private void Update()
     {
         if (!hasTarget) return;
