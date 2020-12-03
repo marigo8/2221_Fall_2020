@@ -12,7 +12,7 @@ public class OutlineOccludedBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Physics.Raycast(transform.position, transform.forward, 10f, LayerMask.GetMask("Default")))
+        if (Physics.Raycast(transform.position, transform.forward, 10f, LayerMask.GetMask("Default", "Ground")))
         {
             playerOutline.enabled = true;
         }
