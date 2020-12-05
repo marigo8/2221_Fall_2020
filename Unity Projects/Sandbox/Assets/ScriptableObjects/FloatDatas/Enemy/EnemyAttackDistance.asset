@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyAttackDistance
   m_EditorClassIdentifier: 
   label: 
-  value: 2
+  value: 1.5
   maxValue: 0
   useClamp: 0
   updateValueEvent:

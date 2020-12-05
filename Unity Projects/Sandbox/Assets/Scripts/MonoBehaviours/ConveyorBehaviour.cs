@@ -21,10 +21,10 @@ public class ConveyorBehaviour : MonoBehaviour
             player.parentForce = transform.forward * speed;
         }
 
-        var enemy = other.GetComponent<NavMeshAgent>();
+        var enemy = other.GetComponent<AIBehaviour>();
         if (enemy != null)
         {
-            enemy.Move(transform.forward*speed*Time.fixedDeltaTime);
+            enemy.parentForce = transform.forward * speed * Time.fixedDeltaTime;
         }
     }
 
@@ -34,6 +34,12 @@ public class ConveyorBehaviour : MonoBehaviour
         if (player != null)
         {
             player.parentForce = Vector3.zero;
+        }
+        
+        var enemy = other.GetComponent<AIBehaviour>();
+        if (enemy != null)
+        {
+            enemy.parentForce = Vector3.zero;
         }
     }
 }

@@ -21,6 +21,7 @@ public class AIBehaviour : MonoBehaviour
 
     public int currentPatrolPoint;
     private bool hasPatrolPoints, canMove = true;
+    public Vector3 parentForce;
 
     private List<AITargetBehaviour> potentialTargets = new List<AITargetBehaviour>();
 
@@ -73,6 +74,10 @@ public class AIBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (parentForce.sqrMagnitude > 0)
+        {
+            agent.Move(parentForce * Time.deltaTime);
+        }
         if (canMove)
         {
             if (potentialTargets.Count <= 0)

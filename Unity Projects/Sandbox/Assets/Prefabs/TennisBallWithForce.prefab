@@ -414,6 +414,10 @@ PrefabInstance:
       propertyPath: filterTag
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2470843115927427160, guid: 3b19191fc2a271e47ac84abe16c480e5, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2641304389313007893, guid: 3b19191fc2a271e47ac84abe16c480e5, type: 3}
       propertyPath: priority
       value: 200
@@ -496,6 +500,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5434647543041640981}
     m_Modifications:
+    - target: {fileID: 2470843115927427160, guid: 3b19191fc2a271e47ac84abe16c480e5, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2641304389313007893, guid: 3b19191fc2a271e47ac84abe16c480e5, type: 3}
       propertyPath: priority
       value: 200

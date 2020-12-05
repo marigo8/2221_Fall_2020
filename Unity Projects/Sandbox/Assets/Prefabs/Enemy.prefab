@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195709654706796451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 2808646188806757021}
   m_RootOrder: 0
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 622262082}
   - component: {fileID: 1365168963}
   - component: {fileID: 6996754596185464324}
-  - component: {fileID: 5004387000419941633}
+  - component: {fileID: 4561747015843370740}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -243,6 +243,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   currentPatrolPoint: 0
+  parentForce: {x: 0, y: 0, z: 0}
 --- !u!54 &6996754596185464324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5004387000419941633
+--- !u!65 &4561747015843370740
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,5 +271,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
