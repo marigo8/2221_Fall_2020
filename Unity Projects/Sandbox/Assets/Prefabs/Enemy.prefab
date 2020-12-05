@@ -227,10 +227,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugVelocity: 0
   autoFindTargets: 1
+  slowBeforeAttack: 1
   chaseSpeed: {fileID: 11400000, guid: 3a90fd4c7dd6a9841b364e34e123501a, type: 2}
+  slowSpeed: {fileID: 11400000, guid: 3d84c98c96f2a4d4eaf015f4e72efb24, type: 2}
+  attackSpeed: {fileID: 11400000, guid: de793c4a4139e9047829cba6a61d0fd7, type: 2}
   patrolSpeed: {fileID: 11400000, guid: 9daf29e3021a7bc459a13597e320c39b, type: 2}
   hitWallSpeed: {fileID: 0}
   tennisBallChaseSpeed: {fileID: 11400000, guid: 3a90fd4c7dd6a9841b364e34e123501a, type: 2}
+  slowDistance: {fileID: 11400000, guid: ddbe5aa0b0666fd4fad97023aa284363, type: 2}
+  attackDistance: {fileID: 11400000, guid: 583b7dce3ee72dc408ba1cc215d1909a, type: 2}
   patrolPoints: {fileID: 11400000, guid: 07887222f7a15d74fbe7c77a58bb46fb, type: 2}
   bossStunAction: {fileID: 0}
   stunTime: {fileID: 0}

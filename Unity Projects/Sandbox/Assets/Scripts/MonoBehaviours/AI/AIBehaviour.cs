@@ -7,9 +7,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBehaviour : MonoBehaviour
 {
-    public bool debugVelocity, autoFindTargets = true;
+    public bool debugVelocity, autoFindTargets = true, slowBeforeAttack;
 
-    public FloatData chaseSpeed, patrolSpeed, hitWallSpeed, tennisBallChaseSpeed;
+    public FloatData chaseSpeed, slowSpeed, attackSpeed, patrolSpeed, hitWallSpeed, tennisBallChaseSpeed, slowDistance, attackDistance;
 
     public Vector3List patrolPoints;
 
@@ -154,7 +154,34 @@ private void Chase()
             return;
         }
 
-        agent.speed = highestPriority.priority >= 150 ? tennisBallChaseSpeed.value : chaseSpeed.value;
+        if (highestPriority.priority >= 150)
+        {
+            agent.speed = tennisBallChaseSpeed.value;
+        }
+        else
+        {
+            if (slowBeforeAttack)
+            {
+                var remainingDistance = agent.remainingDistance;
+                if (remainingDistance > slowDistance.value)
+                {
+                    agent.speed = chaseSpeed.value;
+                }
+                else if(remainingDistance > attackDistance.value)
+                {
+                    agent.speed = slowSpeed.value;
+                }
+                else
+                {
+                    agent.speed = chaseSpeed.value;
+                }
+            }
+            else
+            {
+                agent.speed = chaseSpeed.value;
+            }
+        }
+
         agent.destination = highestPriority.transform.position;
     }
 

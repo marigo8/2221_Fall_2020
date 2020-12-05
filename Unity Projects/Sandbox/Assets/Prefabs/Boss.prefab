@@ -173,6 +173,10 @@ PrefabInstance:
       value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 622262082, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
+      propertyPath: m_AutoBraking
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 622262082, guid: 5581bdabdb239fa43bef8f5da9c68490, type: 3}
       propertyPath: m_Acceleration
       value: 8
       objectReference: {fileID: 0}

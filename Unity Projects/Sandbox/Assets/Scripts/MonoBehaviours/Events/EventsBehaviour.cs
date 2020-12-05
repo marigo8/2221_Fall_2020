@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EventsBehaviour : MonoBehaviour
 {
     public void DestroyObject(GameObject other)
     {
-        DestroyObject(other);
+        Destroy(other);
     }
     
     public void DestroyObject(Collider other)
