@@ -12,6 +12,11 @@ public class TriggerEventsBehaviour : EventsBehaviour
     public UnityEvent<Collider> triggerStayEvent;
     public UnityEvent<Collider> triggerExitEvent;
 
+    private void Start()
+    {
+        GetComponent<Collider>().isTrigger = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (filterTag != "") // If there is no tag, just invoke the event.
