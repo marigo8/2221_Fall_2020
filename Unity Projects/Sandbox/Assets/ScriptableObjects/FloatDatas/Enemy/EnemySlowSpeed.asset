@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemySlowSpeed
   m_EditorClassIdentifier: 
   label: 
-  value: 5.5
+  value: 6
   maxValue: 0
   useClamp: 0
   updateValueEvent:
