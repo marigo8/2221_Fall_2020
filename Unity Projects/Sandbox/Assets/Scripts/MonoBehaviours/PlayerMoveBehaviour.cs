@@ -14,14 +14,14 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public CharacterStateData characterState;
     
     // Variables
-    public float moveSpeed = 5f, sprintModifier = 2f, jumpStrength = 3.5f, dashSpeed = 7.5f, tempClimbStrength, knockBackStrength;
+    public float moveSpeed = 5f, sprintModifier = 2f, jumpStrength = 3.5f, dashSpeed = 7.5f, tempClimbStrength, knockBackStrength, jumpDisableDelay;
     public Vector3 parentForce = Vector3.zero;
     
     // PRIVATE PROPERTIES //
     
     // Variables
-    private bool staminaCoolingDown;
-    private float rotateSpeed = 10f;
+    private bool staminaCoolingDown, canJump;
+    private float rotateSpeed = 10f, airTime;
     private Vector3 movement, gravityForce = Vector3.zero, knockbackForce = Vector3.zero;
     
     // Components
@@ -161,7 +161,21 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // On Grounded
         if (controller.isGrounded)
         {
+            airTime = 0;
+            canJump = true;
             jumpCount.SetValue(0);
+        }
+        else
+        {
+            airTime += Time.deltaTime;
+            if (airTime >= jumpDisableDelay)
+            {
+                canJump = false;
+            }
+        }
+        
+        if (canJump)
+        {
         }
         else if (jumpCount.value == 0)
         {
@@ -171,6 +185,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // Jump
         if (Input.GetButtonDown("Jump") && !jumpCount.IsMaxed)
         {
+            Debug.Log(airTime);
             gravityForce.y = jumpStrength;
             jumpCount.AddToValue(1);
         }
