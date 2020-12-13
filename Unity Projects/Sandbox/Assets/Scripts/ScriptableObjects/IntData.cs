@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class IntData : ScriptableData
 {
     public int value, maxValue;
-    public bool useClamp;
+    public bool useClamp, lockValue;
     
     public bool IsMaxed => value >= maxValue;
 
@@ -16,35 +16,41 @@ public class IntData : ScriptableData
 
     public void AddToValue(int amount)
     {
+        if (lockValue) return;
         value += amount;
         ClampValue();
     }
     public void AddToValue(IntData intData)
     {
+        if (lockValue) return;
         value += intData.value;
         ClampValue();
     }
 
     public void SetValue(int amount)
     {
+        if (lockValue) return;
         value = amount;
         ClampValue();
     }
 
     public void AddToMaxValue(int amount)
     {
+        if (lockValue) return;
         maxValue += amount;
         ClampValue();
     }
 
     public void SetMaxValue(int amount)
     {
+        if (lockValue) return;
         maxValue = amount;
         ClampValue();
     }
 
     public void SetValueToMax()
     {
+        if (lockValue) return;
         SetValue(maxValue);
     }
 
@@ -64,6 +70,7 @@ public class IntData : ScriptableData
 
     public override bool CanBeAltered()
     {
+        if (lockValue) return false;
         return !IsMaxed;
     }
 
@@ -81,5 +88,10 @@ public class IntData : ScriptableData
     public override float GetFraction()
     {
         return (value * 1f) / (maxValue * 1f);
+    }
+
+    public void Lock(bool enableLock)
+    {
+        lockValue = enableLock;
     }
 }
