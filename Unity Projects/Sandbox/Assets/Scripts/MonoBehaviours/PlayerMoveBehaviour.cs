@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMoveBehaviour : MonoBehaviour
@@ -17,6 +18,9 @@ public class PlayerMoveBehaviour : MonoBehaviour
     public float moveSpeed = 5f, sprintModifier = 2f, jumpStrength = 3.5f, dashSpeed = 7.5f, tempClimbStrength, knockBackStrength, jumpDisableDelay;
     public Vector3 parentForce = Vector3.zero;
     
+    // Events
+    public UnityEvent stoppedEvent, walkingEvent;
+
     // PRIVATE PROPERTIES //
     
     // Variables
@@ -69,6 +73,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
             case CharacterStateData.States.Walking:
                 WalkRun();
                 Jump();
+                walkingEvent.Invoke();
                 //TempClimb();
                 break;
             
@@ -77,7 +82,7 @@ public class PlayerMoveBehaviour : MonoBehaviour
                 break;
             
             case CharacterStateData.States.Stopped:
-                
+                stoppedEvent.Invoke();
                 break;
             
             case CharacterStateData.States.KnockBack:
