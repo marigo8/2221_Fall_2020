@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: EnemyAttack
   m_EditorClassIdentifier: 
   label: Weak Attack
-  value: -10
+  value: -15
   maxValue: 0
   useClamp: 0
+  lockValue: 0
   updateValueEvent:
     m_PersistentCalls:
       m_Calls: []

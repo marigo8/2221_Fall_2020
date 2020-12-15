@@ -1,13 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBehaviour : MonoBehaviour
 {
-    public bool debugVelocity, autoFindTargets = true, slowBeforeAttack;
+    public bool debugThisAI, autoFindTargets = true, slowBeforeAttack;
 
     public FloatData chaseSpeed, slowSpeed, attackSpeed, patrolSpeed, hitWallSpeed, tennisBallChaseSpeed, slowDistance, attackDistance;
 
@@ -88,6 +90,7 @@ public class AIBehaviour : MonoBehaviour
                 }
                 else
                 {
+                    if (debugThisAI) Debug.Log("(1) Destination: current position");
                     agent.destination = transform.position;
                 }
             }
@@ -98,17 +101,13 @@ public class AIBehaviour : MonoBehaviour
         }
         else
         {
+            if (debugThisAI) Debug.Log("(2) Destination: current position");
             agent.destination = transform.position;
         }
     }
 
     public void OnWallHit(bool isCritical)
     {
-        if (debugVelocity)
-        {
-            Debug.Log(agent.velocity.magnitude);
-        }
-
         if (agent.velocity.magnitude < hitWallSpeed.value) return;
 
         bossStunAction.Raise();
@@ -128,9 +127,12 @@ public class AIBehaviour : MonoBehaviour
         canMove = true;
     }
 
-private void Chase()
+    private void Chase()
     {
+        if (agent.pathPending) return;
+        
         var highestPriority = potentialTargets[0];
+        
         foreach (var potentialTarget in potentialTargets)
         {
             if (potentialTarget == null)
@@ -139,13 +141,16 @@ private void Chase()
                 break;
             }
             
+            
             if (potentialTarget.priority <= highestPriority.priority) continue;
             
-            if (!agent.hasPath) continue;
+            //if (!agent.hasPath) continue;
+
+            //if (agent.path.status == NavMeshPathStatus.PathInvalid) continue;
 
             if (potentialTarget.isActiveAndEnabled == false || potentialTarget.priority <= 0)
             {
-                Debug.Log(potentialTarget + " has allegedly been removed");
+                if (debugThisAI) Debug.Log(potentialTarget + " has allegedly been removed");
                 potentialTargets.Remove(potentialTarget);
                 break;
             }
@@ -187,12 +192,23 @@ private void Chase()
             }
         }
 
+        if (debugThisAI) Debug.Log("(3) Destination: " + highestPriority.name);
         agent.destination = highestPriority.transform.position;
     }
 
     private void Patrol()
     {
         agent.speed = patrolSpeed.value;
+        if (debugThisAI) Debug.Log("(4) Destination: Patrol point "+ patrolPoints.vector3List[currentPatrolPoint]);
         agent.destination = patrolPoints.vector3List[currentPatrolPoint];
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!debugThisAI) return;
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position + Vector3.up*2, .5f);
+        if (agent == null) return;
+        Gizmos.DrawWireSphere(agent.destination,.5f);
     }
 }

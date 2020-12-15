@@ -190,7 +190,6 @@ public class PlayerMoveBehaviour : MonoBehaviour
         // Jump
         if (Input.GetButtonDown("Jump") && !jumpCount.IsMaxed)
         {
-            Debug.Log(airTime);
             gravityForce.y = jumpStrength;
             jumpCount.AddToValue(1);
         }
